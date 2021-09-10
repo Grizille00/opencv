@@ -1,0 +1,399 @@
+
+//- Mixins
+
+mixin dropBtn(txt)
+    a.btn.my-btn.btn-white.drop-btn(href="#")
+        span=txt 
+        i
+            img(src="./img/drop-icon.png", alt="")
+mixin dropBtn1(txt)
+    a.btn.my-btn.drop-btn.darl(href="#")
+        span=txt 
+        i
+            img(src="./img/inco-drop-white.png", alt="")
+mixin myBtn(txt)
+    a.btn.btn-white.my-btn(href="#")=txt 
+
+mixin sideBtn(txt)
+    a.btn.btn-white.side-btn(href="#")
+        span=txt 
+        i 
+            img(src="./img/Iconight.png", alt="")
+
+
+mixin service(txt)
+    .service 
+        .service-display 
+            img(src=txt[0], alt="")
+            +sideBtn("Discover")
+        p 
+            span=txt[1]
+
+    
+
+mixin FAQ(qsn)
+    .faq-qsn 
+        p.title
+            span=qsn[0] 
+            i
+                img(src="", alt="")
+        hr 
+        p.ans 
+            span=qsn[1]
+    
+
+mixin item(txt,items)
+    .col-md-4
+        .item
+            h4=txt
+            ul
+                for item in items 
+                    li 
+                        span=item
+
+mixin about-card(cls)
+    .col-md-6 
+        .card.my-card(class=cls[0])
+            for i in cls[1]
+                img.card-img-top(src=i[0],class=i[1] alt="")
+            .card-body
+                span=cls[2]
+
+
+//- mixins End
+
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Open VC
+        link(rel="shortcut icon", href="./favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", href="./fonts/fonts.css")
+        link(rel="stylesheet", href="./css/bootstrap.min.css")
+        link(rel="stylesheet", href="./css/slick.css")
+        link(rel="stylesheet", href="./css/slick-theme.css")
+        link(rel="stylesheet", href="./css/style.css")
+    body 
+        //- Header
+        header.main-header 
+            img.logo(src="./img/logo.png", alt="")
+            svg(class="ham hamRotate " viewBox="0 0 100 100" )
+                path(class="line top" d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20")
+                path(class="line middle" d="m 30,50 h 40")
+                path(class="line bottom" d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20")
+           
+
+            nav.menu 
+                a(href="#") Explore
+                a(href="#") For Founders
+                a(href="#") For Investors
+                +myBtn("Sign Up")
+        //- Header End
+
+
+        //- //- Hero Section
+        section.hero.d-flex
+            .hero-inner 
+                h1. 
+                    The platform 
+                    connecting
+                    founders to 
+                    angel investors
+                p 
+                    +dropBtn("Sign Up")
+                    +myBtn("Sign In")
+            .hero-display
+                img.img-fluid(src="./img/hero.png", alt="")
+                .title 
+                    h4 James Cordin
+                    p 
+                        |Founder of 
+                        span
+                            |MechaLimb
+                        |funded via OVC in 2018
+        //- Hero End
+
+        //- About Section
+
+
+        section.about
+            h2 Thoughtfully built....
+
+            .container.about-inner
+                .row.gx-5
+                    +about-card(
+                        [
+                            "card1",
+                            [
+                                [
+                                    "./img/about1.png",
+                                    "img-fluid"
+                                ]
+                            ],
+                            "For Investors"
+                        ]
+                    )
+
+                    +about-card(
+                        [
+                            "card2",
+                            [
+                                [
+                                    "./img/about-fg.png",
+                                    "img-bg"
+                                ],
+                                [
+                                    "./img/pexels-thisisengineering-3861973.png",
+                                    "img-fluid"
+                                ],
+                                ],
+                            "For Founders"
+                        ]
+
+                    )
+                    
+ 
+
+
+
+        //- About End
+
+        //- Services Section
+
+
+        section.services 
+            h2 A sHow of our platform founders
+
+
+            .services-inner.center
+                +service(
+                    [
+                        "./img/next-academy-JyJwO0K5fWM-unsplash.png",
+                        "Founder of Flite, A flight training VR software used by Boeing."
+                    ]
+                )
+
+                +service(
+                    [
+                        "./img/pexels-thisisengineering-3912518.png",
+                        "Founder of GreenTech, an organic aqua vegetable system founder"
+                    ]
+                )
+
+                +service(
+                    [
+                        "./img/pexels-thisisengineering-3912474.png",
+                        "Founder of Flite, A flight training VR software used by Boeing."
+                    ]
+                )
+
+                +service(
+                    [
+                        "./img/next-academy-JyJwO0K5fWM-unsplash.png",
+                        "Founder of Flite, A flight training VR software used by Boeing."
+                    ]
+                )
+
+                +service(
+                    [
+                        "./img/pexels-thisisengineering-3912518.png",
+                        "Founder of GreenTech, an organic aqua vegetable system founder"
+                    ]
+                )
+
+                +service(
+                    [
+                        "./img/pexels-thisisengineering-3912474.png",
+                        "Founder of Flite, A flight training VR software used by Boeing."
+                    ]
+                )
+
+
+
+        //- Services End
+
+        //- Founder Sign Up 
+        
+        section.founder
+            img.founder-bg(src="./img/founder-signup.png", alt="")
+            .founder-inner 
+                h3 Join As A founder
+                p. 
+                    Connect with a vast amount of investors
+                    and share your business pitches
+
+                +dropBtn("Sign Up")
+            
+        //- Founder End
+
+
+
+        //- Iverstor Section
+
+        section.investor 
+            .investor-inner 
+                h3 JOin as an investor
+                p. 
+                    Connect with founders and invest in
+                    the next Elon Musk
+                +dropBtn1("Sign Up")
+            img.img-fluid(src="./img/pexels-anna-shvets-3727511.png", alt="")
+                
+
+
+        //- Ivestor End
+
+        //- FAQ Section
+
+        section.FAQ 
+            .container
+                h2 Frequently Asked Questions
+
+                .FAQ-inner 
+                    +FAQ(
+                        [
+                            "Is this platform being used by founders?",
+                            "We have 300 000 founders accounts registered on our platform to this day and the number keeps growing.  Of these founders, a large demographic is of casual founders followed by new founders."
+                        ]
+                    )
+
+                    +FAQ(
+                        [
+                            "Is this platform being used by founders?",
+                            "We have 300 000 founders accounts registered on our platform to this day and the number keeps growing.  Of these founders, a large demographic is of casual founders followed by new founders."
+                        ]
+                    )
+                    +FAQ(
+                        [
+                            "Is this platform being used by founders?",
+                            "We have 300 000 founders accounts registered on our platform to this day and the number keeps growing.  Of these founders, a large demographic is of casual founders followed by new founders."
+                        ]
+                    )
+                    +FAQ(
+                        [
+                            "Is this platform being used by founders?",
+                            "We have 300 000 founders accounts registered on our platform to this day and the number keeps growing.  Of these founders, a large demographic is of casual founders followed by new founders."
+                        ]
+                    )
+                    +FAQ(
+                        [
+                            "Is this platform being used by founders?",
+                            "We have 300 000 founders accounts registered on our platform to this day and the number keeps growing.  Of these founders, a large demographic is of casual founders followed by new founders."
+                        ]
+                    )
+                    +FAQ(
+                        [
+                            "Is this platform being used by founders?",
+                            "We have 300 000 founders accounts registered on our platform to this day and the number keeps growing.  Of these founders, a large demographic is of casual founders followed by new founders."
+                        ]
+                    )
+                    +FAQ(
+                        [
+                            "Is this platform being used by founders?",
+                            "We have 300 000 founders accounts registered on our platform to this day and the number keeps growing.  Of these founders, a large demographic is of casual founders followed by new founders."
+                        ]
+                    )
+                    +FAQ(
+                        [
+                            "Is this platform being used by founders?",
+                            "We have 300 000 founders accounts registered on our platform to this day and the number keeps growing.  Of these founders, a large demographic is of casual founders followed by new founders."
+                        ]
+                    )
+
+
+        //- FAQ End
+
+        //- Funds Section
+        section.funds
+            .container
+                .collapser 
+                    .funds-inner 
+                        h2 Startups Funded Via Open VC
+                        hr 
+                    .sponsors 
+                        .controls 
+                            button.btnPrev 
+                                img(src="./img/prev.png", alt="")
+                            button.btnNext
+                                img(src="./img/next.png", alt="")
+                        .logos.funder
+                            .slide0 
+                                img(src="./img/5847f42bcef1014c0b5e488e.png", alt="")
+                            .slide0 
+                                img(src="./img/5847f44acef1014c0b5e4892.png", alt="")
+                            .slide0 
+                                img(src="./img/5847f424cef1014c0b5e488d.png", alt="")
+                            .slide0 
+                                img(src="./img/5847f42bcef1014c0b5e488e.png", alt="")
+                            .slide0 
+                                img(src="./img/5847f44acef1014c0b5e4892.png", alt="")
+                            .slide0  
+                                img(src="./img/5847f424cef1014c0b5e488d.png", alt="")
+          
+                .display 
+                    img(src="./img/Rectangle 202.png", alt="")
+                    img(src="./img/Group 45.png", alt="")
+                    img(src="./img/Rectangle 205.png", alt="")
+
+        //- Funds End
+
+
+        //- Footer Section
+
+        footer.my-footer 
+            .container
+                .row
+                    +item(
+                        "Founders",
+                        [
+                        "Grow your startup",
+                        "Start a company",
+                        "Raise Capital"
+                        ]
+                    )
+
+                    +item(
+                        "Open VC",
+                        [
+                        "About Us",
+                        "Support",
+                        "Support"
+                        ]
+                    )
+
+                    +item(
+                        "Investors",
+                        [
+                        "Trending industries",
+                        "Trending industries",
+                        "Equity splits"
+                        ]
+                    )
+                span.sub 
+                    i 
+                        img(src="./img/logo1.png", alt="")
+                    hr
+                    p 
+                        |Privacy Policy 2021
+                        
+
+
+        //- Footer End
+
+
+
+
+
+
+
+        
+    
+
+
+        script(src="./js/jquery-2.2.0.min.js") 
+        script(src="./js/bootstrap.bundle.min.js") 
+        script(src="./js/slick.min.js")
+        script(src="./js/main.js")

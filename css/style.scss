@@ -1,0 +1,1181 @@
+// ========================Variables=============================
+
+    // Fonts
+
+        $text-bold:'Montserrat-Bold';
+        $text-regular:'Montserrat-Regular';
+        $text-light:'Montserrat-Light';
+        $text-semiBold:'Montserrat-SemiBold';
+        $text-medium:'Montserrat-Medium';
+        $text-redHat:'Red Hat Display Bold';
+
+    // Fonts End
+
+    // Colors
+        $color-lightBlue:#E1EFF6;
+        $color-lightBlack:#060606;
+        $color-black:#000;
+        $color-white:#FFFFFF;
+        $color-green:#22eeff;
+
+    // Colors End
+
+    // Sizing
+        $btn-space:20px;
+        $pad:2rem 1rem;
+        $ham-sz:60px;
+        $ham-pos:0.5rem;
+        $anim-time:400ms;
+        @media (min-width:576px) {
+            $btn-space: 35px;
+            $ham-sz:100px;
+            $ham-pos:1rem;
+        }
+
+        @media (min-width:576px)  and (max-width:768px){
+            $btn-space: 30px;
+            $ham-sz:80px;
+        }
+    // Sizing End
+
+// ============================End================================
+
+
+
+// ========================Mixins=============================
+
+    // Typography
+        @mixin text($font,$color,$sm,$md,$lg) {
+            font-family: $font;
+            color: $color;
+            font-size: $sm;
+
+            @media (min-width:576px) {
+                font-size: $lg;
+            }
+
+            @media (min-width:576px)  and (max-width:768px){
+                font-size: $md;
+            }
+        }
+
+    // Typo End
+
+    // Menu Text
+        @mixin menu-text($color1,$color2) {
+            @include text(
+                $text-regular,
+                $color1,
+                25px,
+                35px,
+                35px
+            );   
+            // width: fit-content;
+            // margin-top: $left-spacing;
+            transition: .7s linear;
+            opacity: 0;
+            transform: scale(.1);
+            &.active{
+                opacity: 1;
+            }
+            &:hover{
+                opacity: 1;
+            }
+
+            @media (min-width:1025px){
+                opacity: 1;
+                transform: scale(1);
+                color:$color2;
+            }
+            
+        
+        }
+    // Menu End
+
+
+    // Haburger Menu Icon
+
+        @mixin ham($color) {
+            background-color: rgba($color:$color-lightBlack,$alpha:0.3);
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0px 4px 24px rgba($color:$color-black,$alpha:0.10);
+            transition: $anim-time;
+            user-select: none;
+            display: block;
+            height: $ham-sz;
+            width: $ham-sz;
+            border-radius: 50%;
+            border: 3px double $color-black;
+            position: absolute;
+            right: .5rem;
+            top: 0.5rem;
+            padding: 0;
+            transition: .7s linear;
+            z-index: 2;
+
+            .top{
+                stroke-dasharray: 20 160;
+            }
+
+            .middle{
+                stroke-dasharray: 40 142;
+                transform-origin: 50%;
+                transition: transform $anim-time;
+            }
+
+            .bottom{
+                stroke-dasharray: 20 85;
+                transform-origin: 50%;
+                transition: transform $anim-time, stroke-dashoffset $anim-time ;
+            }
+
+            &.open{
+                border-color: $color;
+                transform: rotate(45deg);
+                .top{
+                    stroke-dashoffset: -64px;
+                }
+                .middle{
+                    stroke-dashoffset: 0;
+                    transform: rotate(90deg);
+                }
+                .bottom{
+                    stroke-dashoffset: -64px;
+                }
+            }
+
+
+            @media (min-width:1025px) {
+                display: none;
+            }
+            
+        }
+
+    // Hamburger End
+
+    // Stroke lining
+        @mixin lining($color,$tym){
+            fill: none;
+            transition: stroke-dasharray $tym, stroke-dashoffset $tym;
+            stroke: $color;
+            stroke-width: 4;
+            stroke-linecap: round;
+        }
+    // Stroke End
+    
+
+
+    // Nav Menu
+
+        @mixin nav(){
+            position: absolute;
+            &::before{  
+                display: block;        
+                position: fixed;
+                top: 0;
+                left: 0;
+                content: "";
+                width: 100vw;
+                height: 100vh;
+                background: rgba($color: $color-black, $alpha: 0.95);
+                transition: all 500ms ease-in-out;
+                clip-path: circle(30px at calc(100% - 65px) 65px);
+                visibility: hidden;
+            } 
+            
+            flex-direction: column;
+            a{
+                position: relative;
+                @include menu-text($color-white,$color-lightBlack);
+                
+            }
+            &.open{
+                z-index: 1;
+                width: 100%;
+                height: 100vh;
+                overflow: hidden;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &::before{
+                    visibility: visible;
+                    clip-path: circle(100%);
+                }
+        
+                a{
+                    z-index: 2;
+                    transform: scale(1);
+                    opacity: .9;
+                    text-align: center;
+                    &:not(:nth-child(1)){
+                        margin-top: 10vh;
+                    }
+
+                }
+
+                .my-btn{
+                    color: $color-lightBlack;
+                }
+            }
+
+
+            @media (min-width:1025px){
+                position:relative;
+            }
+            
+
+        }
+
+    // Nav End
+
+
+    // Hero Card
+    @mixin hero-card {
+        position: relative;
+        .title{
+            position: absolute;
+            right: 0;
+            bottom: 5%;
+            padding: $btn-space/2 $btn-space/4;
+            width:60%;
+            height: auto;
+            border-radius: $btn-space;
+            background-color: $color-white;
+            span{
+                font-family: $text-bold;
+                font-weight: 900;
+                margin: 0 $btn-space/4;
+            }
+
+        }
+
+        @media (min-width:576px) {
+            .title{
+                // width:57% ;
+                bottom: 0;
+            }
+        }
+    }
+
+    // Hero Card End
+
+
+    // my-Btn 
+
+        @mixin my-btn($tc){
+            background-color: $color-white;
+            // display: flex;
+            // width: 100%;
+        }
+
+    // Btn End
+
+
+
+
+// ============================End================================
+
+
+// ========================Typography=============================
+
+h1{
+    padding: $btn-space*3/2 0 $btn-space;
+    @include text(
+        $text-bold,
+        $color-black,
+        22px,
+        25px,
+        59px
+    );
+    text-transform: uppercase;
+
+}
+
+h2{
+    text-transform: uppercase;
+    @include text(
+        $text-regular,
+        $color-black,
+        22px,
+        26px,
+        51px
+    );
+
+    @media (min-width:1024px) and (max-width:1366px){
+        font-size: 32px;
+    }
+}
+
+h3{
+    text-transform: uppercase;
+    @include text(
+        $text-regular,
+        $color-black,
+        19px,
+        30px,
+        41px
+    );
+    @media (min-width:1024px) and (max-width:1366px){
+        font-size: 26px;
+    }
+}
+
+h4{
+    @include text(
+        $text-bold,
+        $color-black,
+        16px,
+        26px,
+        32px
+    );
+    @media (min-width:1024px) and (max-width:1366px){
+        font-size: 24px;
+    }
+}
+
+p{
+    @include text(
+        $text-regular,
+        $color-black,
+        12px,
+        17px,
+        23px
+    )
+}
+
+a,button{
+    @include text(
+        $text-bold,
+        $color-black,
+        14px,
+        19px,
+        26px
+    )
+}
+
+a{
+    text-decoration: none;
+}
+
+i{
+    display: inline-block;
+    width: 20%;
+    margin-left: $btn-space/2;
+    transition: $anim-time;
+    top: 0;
+
+
+    img{
+        width: 100%;
+        object-fit: contain;
+    }
+
+
+    position: relative;
+    &:hover{
+        top: 5px;
+    }
+
+    @media (min-width:576px) {
+        width: 14%;
+    }
+
+}
+
+img{
+    object-fit: contain;
+}
+
+
+.logo{
+    object-fit: contain;
+    position: absolute;
+    width: 35%;
+    @media (min-width:576px) {
+        width: 12%;
+        position: relative;
+    }
+
+    @media (min-width:576px)  and (max-width:768px){
+        width: 14%;
+        position: absolute;
+    }
+}
+
+
+
+.my-btn{
+    // @include my-btn();
+    background-color: $color-white;
+    border: none;
+    border-radius: 5px;
+    font-family: $text-bold;
+    font-weight: 900;
+    transition: $anim-time ease-in;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding:$btn-space/2 $btn-space;
+    width: 120px;
+    @include text(
+        $text-bold,
+        $color-black,
+        14px,
+        22px,
+        26px
+    );
+    @media (min-width:576px) {
+        width: 200px;   
+    }
+
+    @media (min-width:576px) and (max-width:768px){
+        width: auto;
+    }
+    @media (min-width:1025px) {
+        // border-color: $color-black;
+    }
+
+    &:hover{
+        box-shadow: 0 2px 2px 2px rgba($color:$color-black,$alpha:0.20) ;
+    }
+}
+
+
+
+.darl{
+    background-color:$color-lightBlack;
+    color: $color-white;
+}
+
+
+// ============================End================================
+
+
+
+
+
+
+// ========================Header Section==========================
+
+.main-header {
+    position: absolute;
+    width: 99%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $pad;
+    .menu{
+        @include nav();
+        
+        
+    }
+
+    .ham{
+        @include ham($color-green);
+    }
+
+    .line{
+        @include lining($color-green,$anim-time );
+    }
+
+
+
+
+    @media (min-width:1025px){
+        .menu{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+
+            .my-btn{
+                padding: $btn-space/4 $btn-space;
+            }
+            
+            a{
+                &:not(:nth-child(1)){
+                    margin-left: $btn-space;
+                }
+            }
+        }
+    }
+
+}
+
+// ============================End====================================
+
+
+
+// ========================Banner Section============================
+
+.hero{
+    align-items: center;
+    padding: $pad;
+    padding-top: $btn-space*4;
+    background-color: $color-green;
+    flex-direction: column;
+    text-align: center;
+
+    a{
+        @include my-btn($color-white);
+        margin-bottom: $btn-space;
+        &:nth-child(1){
+            margin-right: $btn-space;
+        }
+       
+    }
+
+    .hero-display{
+        @include hero-card();
+        
+    }
+
+    
+
+
+
+    @media (min-width:576px) {
+        align-items: center;
+        text-align: left;
+        padding: $btn-space*10 $btn-space*2 $btn-space*5;
+        flex-direction: row;
+        h1{
+
+            padding: 0;
+            padding-bottom: 5vh;
+            
+        }
+        .hero-inner{
+            width: 50%;   
+            
+        }
+
+        .hero-display{
+            .title{
+                width: 51%;
+                padding: $btn-space;
+            }
+            img{
+                position: relative;
+                left: 7%;
+            }
+        }
+
+
+
+        a{
+            &:nth-child(1){
+                margin-right: $btn-space*2;
+            }
+           
+        }
+
+
+        
+    }
+
+    @media (min-width:567px) and (max-width:768px){
+        padding: $btn-space*4 $btn-space;
+        text-align: left;
+        h1{
+            padding: 0;
+        }
+        .hero-display{
+            .title{
+                width: 50%;
+            }
+        }
+        a{
+            // width: auto;
+            margin: $btn-space 0;
+        }
+    }
+
+    @media (min-width:1024px) and (max-width:1366px){
+        padding-top: $btn-space*4;
+            a{
+                width: auto;
+            }
+
+            
+
+            h1{
+                font-size: 35px;
+                padding-bottom:1vh;
+            }
+            .title{
+                width: 67%;
+            }
+        }
+}
+
+// ============================End====================================
+
+
+// ========================About Section==========================
+
+.about{
+    background: $color-green;
+    // padding:  $btn-space*4 $btn-space*2 $btn-space*2;
+    padding: $btn-space $btn-space/2;
+    margin-top: -5%;
+
+    
+
+    .about-inner{
+        
+        img{
+            position: relative;
+            bottom: 6vh;
+        }
+
+    }
+
+    
+
+    .my-card{
+        margin-top: $btn-space*2;
+        border-radius: $btn-space;
+        position: relative;
+        text-align: center;
+
+    
+        
+        span{
+            @include text(
+                $text-bold, 
+                $color-black, 
+                18px,
+                22px,
+                30px );
+            position: absolute;
+            bottom: 5%;
+            left: 26%;
+        }
+
+        .img-bg{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+       
+        
+    }
+
+    .card2{
+        margin-top: $btn-space*5;
+    }
+
+    @media (min-width:567px) {
+        padding: $btn-space*5 $btn-space*2 $btn-space/2;
+        .about-inner{
+            padding-top: $btn-space*4;
+        }
+        .my-card{
+            height: 80%;
+            width: 70%;
+            margin-top: 0;
+           
+            img{
+                height: 600px;
+            }
+
+            .img-bg{
+                height: auto;
+            }
+        }
+        .card1{
+            margin-left: 20%;
+        }
+        .card2{
+            margin-right: 20%;
+        }
+    }
+
+    @media (min-width:567px) and (max-width:768px){
+        .my-card{
+            img{
+                height: auto;
+            }
+
+            span{
+                left: 17%;
+            }
+        }
+    }
+
+    @media (min-width:1024px) and (max-width:1366px){
+        h2{
+            margin-bottom: $btn-space*3;
+        }
+        .my-card{
+
+            img{
+                height: auto;
+            }
+            span{
+                bottom: 0;
+                left: 18%;
+            }
+        }
+    }
+}
+
+// ============================End====================================
+
+
+
+// ========================Services Section==========================
+
+
+
+.services{
+    padding:  $btn-space*4 $btn-space $btn-space*2;
+    padding-right: 0;
+    text-align: center;
+
+    h2{
+        margin-bottom: 5vh;
+
+    }
+    .slick-active{
+        a{
+            i,span{
+                text-shadow: 0 .1875rem  .375rem  rgba($color:$color-black,$alpha:0.23);
+            }
+            box-shadow:  0 .1875rem  .375rem  rgba($color:$color-black,$alpha:0.23);
+        }
+    }
+
+
+    .service{
+        position: relative;
+        margin-right: $btn-space*3;
+        img{
+            width: 100%;
+            // height: 85%;
+        }
+    }
+
+
+    a{
+        background-color: $color-white;
+        border: 1px solid $color-lightBlack;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 27%;
+        right: 2%;
+        font-family: $text-redHat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        i{
+            top: .5vh;
+        }
+        
+    }
+
+    p{
+        margin-top: 5vh;
+    }
+
+
+    @media (min-width:576px) {
+        text-align: left;
+        padding-left: 6%;
+        padding: $btn-space*5 $btn-space*2;
+        h2{
+            margin-bottom: $btn-space*3;
+        }
+        .services-inner {
+            margin-left: 4%;
+        }
+    }
+
+    @media (min-width:1024px) and (max-width:1366px){
+        a{
+            bottom: 40%;
+        }
+        p{
+            margin-top: 2vh;
+        }
+    }
+}
+
+// ============================End====================================
+
+
+
+
+
+// ========================Founder Section==========================
+
+.founder{
+    padding: $btn-space*2 $btn-space;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: $btn-space*2;
+    background-color: $color-green;
+    
+    text-align: center;
+
+    .founder-bg{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    
+    .founder-inner {
+        margin-bottom: $btn-space*2;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        // align-items: center;
+    }
+
+
+    @media (min-width:576px) {
+        padding: $btn-space*2 ;
+        padding-right: $btn-space;
+        text-align: left;
+        flex-direction: row;
+        align-items: center;
+        .founder-bg{
+            position: relative;
+            bottom: 10vh;
+        }
+
+        .founder-inner {
+            padding: 0 $btn-space*2;
+            margin-bottom: 0;
+            position: relative;
+            bottom: 6vh;
+            h3,p{
+                margin-bottom: $btn-space*3/2;
+            }
+        }
+    }
+
+    @media (min-width:567px) and (max-width:768px){
+        padding: $btn-space*6 $btn-space $btn-space*2;
+        flex-direction: column-reverse;
+        text-align: center;
+
+        .founder-bg{
+            bottom: 0;
+        }
+
+    }
+}
+
+
+// ============================End====================================
+
+
+// ========================Investor Section==========================
+
+.investor {
+    padding: $btn-space*2 $btn-space;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    .investor-inner {
+        margin-bottom: $btn-space*2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    @media (min-width:576px) {
+
+        padding: $btn-space*5 $btn-space*3;
+        text-align: left;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        h3,p{
+            margin-bottom: $btn-space*3/2;
+        }
+    }
+    @media (min-width:567px) and (max-width:768px){
+        padding: $btn-space*4 $btn-space $btn-space*2;
+        flex-direction: column;
+        text-align: center;
+
+
+    }
+}
+
+// ============================End====================================
+
+
+
+
+// ========================FAQ Section==========================
+.FAQ{
+    background-color: $color-green;
+    padding: $btn-space*2 $btn-space;
+    margin-bottom: -4%;
+
+    h2{
+        text-align: center;
+        margin-bottom: $btn-space*4;
+    }
+    .FAQ-inner {
+        margin-top: $btn-space*2;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .faq-qsn{
+        position: relative;
+        transition: $anim-time;
+        .title{
+            display: flex;
+        }
+        .ans{
+            transition: $anim-time;
+            position: absolute;
+            // height: 0;
+            top: 0;
+            opacity: 0;
+            visibility: hidden;
+            margin-bottom: $btn-space*2;
+
+            &.open{
+                position: relative;
+                visibility: visible;
+                opacity: 1;
+                // height: auto;
+            }
+        }
+        
+    }
+    i{
+        width: $btn-space;
+    }
+
+
+
+
+    @media (min-width:576px) {
+        padding: $btn-space*10 $btn-space*3 $btn-space*3;
+        .FAQ-inner {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .faq-qsn{
+            width: 50%;
+            // margin-bottom: $btn-space*2;
+
+            .ans{
+                width: 90%;
+                margin: $btn-space*2 0 $btn-space*4;
+            }
+
+            hr{
+                height: 1px;
+                color: $color-black;
+                opacity: 1;
+                width: 90%;
+            }
+        }
+    }
+
+
+    @media (min-width:567px) and (max-width:768px){
+        .faq-qsn{
+            width: 45%;
+        }
+            
+    }
+    
+}
+
+// ============================End====================================
+
+
+// ========================Funds Section==========================
+.funds{
+    padding:$btn-space*3 0 ;
+    background-color: $color-green;
+    text-align: center;
+    // overflow: hidden;
+    .collapser {
+        background-color: $color-white;
+        padding: $btn-space*2;
+        z-index: 1;
+        position: relative;
+        text-align: center;
+        padding: $btn-space*4;
+        border-radius: $btn-space;
+    }
+    .slide0{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 90%;
+        img{
+            width: 90%;
+        }
+    }
+
+    .sponsors {
+        position: relative;
+        // margin: auto;
+        // width: 90%;
+    }
+
+    .controls{
+        visibility: hidden;
+        position: absolute;
+        z-index: 1;
+        left: -$btn-space*4;
+        width: 114%;
+        display: flex;
+        justify-content: space-between;
+        button{
+            background:transparent;
+            border: none;
+            outline: none;
+             }
+    }
+    .display{
+        display: none;
+        text-align: center;
+        position: relative;      
+        bottom: 4vh;
+        margin-bottom: -10%;
+        img{
+            &:nth-child(1){
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+            }
+            &:nth-child(2){
+                position: relative;
+                z-index: 2;
+            }
+
+            &:nth-child(3){
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+        }
+    }
+
+    @media (min-width:576px) {
+        padding: $btn-space*5 0 $btn-space*2;
+        text-align: left;
+
+        .display{
+            display: block;
+        }
+
+        .controls{
+            visibility: visible;
+        }
+
+        .slide0{
+            width: auto;
+            img{
+                width: auto;
+            }
+        }
+    }
+
+    @media (min-width:567px) and (max-width:768px){
+        .controls{
+            width: 111%;
+            button{
+                border-radius: 50%;
+                background-color: $color-white;
+            }
+        }
+    }
+}
+// ============================End====================================
+
+
+// ========================Footer Section==========================
+.my-footer{
+    position: relative;
+    z-index: 1;
+    background-color: $color-black;
+    color: $color-white;
+    text-align: center;
+    padding: $btn-space*2 0;
+    .item{
+        margin-top: $btn-space*2;
+    }
+    h4{
+        color: $color-white;
+        margin-bottom: 5vh;
+    }
+    ul{
+        list-style: none;
+        padding: 0;
+    }
+    p{
+        color: $color-white;
+        margin: 0;
+    }
+
+    span{
+        @include text(
+        $text-regular,
+        $color-white,
+        12px,
+        17px,
+        23px
+    )
+    }
+
+    .sub{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: $btn-space*2;
+        hr{
+            height: $btn-space;
+            opacity: 1;
+            width: 4px;
+            color: $color-white;
+            margin: 0 $btn-space/2;
+        }
+
+        i{
+            width: 30%;
+        }
+
+        img{
+            width: 100%;
+        }
+    }
+
+    @media (min-width:576px) {
+        padding: $btn-space*4 0;
+        .sub{
+            i{
+                width: 10%;
+            }
+            hr{
+            height: $btn-space*2;
+            margin: $btn-space*2;
+        }
+    }
+    }
+}
+
+// ============================End====================================
