@@ -166,6 +166,7 @@ img {
 .my-btn {
   background-color: #FFFFFF;
   border: none;
+  margin: auto;
   border-radius: 5px;
   font-family: "Montserrat-Bold";
   font-weight: 900;
@@ -174,7 +175,9 @@ img {
   align-items: center;
   justify-content: center;
   padding: 10px 20px;
-  width: 120px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   font-family: "Montserrat-Bold";
   color: #000;
   font-size: 14px;
@@ -187,16 +190,6 @@ img {
 @media (min-width: 576px) and (max-width: 768px) {
   .my-btn {
     font-size: 22px;
-  }
-}
-@media (min-width: 576px) {
-  .my-btn {
-    width: 200px;
-  }
-}
-@media (min-width: 576px) and (max-width: 768px) {
-  .my-btn {
-    width: auto;
   }
 }
 .my-btn:hover {
@@ -380,6 +373,8 @@ img {
   background-color: #22eeff;
   flex-direction: column;
   text-align: center;
+  overflow: hidden;
+  width: 100%;
 }
 .hero a {
   background-color: #FFFFFF;
@@ -779,18 +774,16 @@ img {
   z-index: 1;
   position: relative;
   text-align: center;
-  padding: 80px;
+  padding: 80px 20px;
   border-radius: 20px;
 }
 .funds .slide0 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   width: 90%;
 }
 .funds .slide0 img {
-  width: 90%;
+  margin: auto 20px;
+  width: 80%;
 }
 .funds .sponsors {
   position: relative;
@@ -810,6 +803,7 @@ img {
   outline: none;
 }
 .funds .display {
+  width: 100%;
   display: none;
   text-align: center;
   position: relative;
@@ -823,6 +817,7 @@ img {
   z-index: 0;
 }
 .funds .display img:nth-child(2) {
+  width: 100%;
   position: relative;
   z-index: 2;
 }
