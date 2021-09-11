@@ -556,6 +556,7 @@ img {
 }
 .services .service {
   position: relative;
+  margin-right: 20px;
 }
 .services .service img {
   width: 100%;
@@ -587,6 +588,9 @@ img {
   .services .services-inner {
     position: relative;
     left: 10%;
+  }
+  .services .service {
+    margin-right: 60px;
   }
 }
 @media (min-width: 1024px) and (max-width: 1366px) {
