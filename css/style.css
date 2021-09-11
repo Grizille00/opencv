@@ -118,25 +118,7 @@ a {
 }
 
 i {
-  display: inline-block;
-  width: 20%;
   margin-left: 10px;
-  transition: 400ms;
-  top: 0;
-  position: relative;
-}
-i img {
-  width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-i:hover {
-  top: 5px;
-}
-@media (min-width: 576px) {
-  i {
-    width: 14%;
-  }
 }
 
 img {
@@ -182,6 +164,9 @@ img {
   color: #000;
   font-size: 14px;
 }
+.my-btn span {
+  display: ruby;
+}
 @media (min-width: 576px) {
   .my-btn {
     font-size: 26px;
@@ -194,6 +179,7 @@ img {
 }
 .my-btn:hover {
   box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+  color: #22eeff;
 }
 
 .darl {
@@ -267,7 +253,7 @@ img {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 .main-header .menu.open::before {
   visibility: visible;
@@ -406,6 +392,10 @@ img {
     bottom: 0;
   }
 }
+.hero .hero-display .title p {
+  display: flex;
+  flex-wrap: wrap;
+}
 @media (min-width: 576px) {
   .hero {
     align-items: center;
@@ -421,7 +411,7 @@ img {
     width: 50%;
   }
   .hero .hero-display .title {
-    width: 51%;
+    width: 45%;
     padding: 20px;
   }
   .hero .hero-display img {
@@ -441,7 +431,7 @@ img {
     padding: 0;
   }
   .hero .hero-display .title {
-    width: 50%;
+    width: 42%;
   }
   .hero a {
     margin: 20px 0;
@@ -515,9 +505,7 @@ img {
     height: 80%;
     width: 70%;
     margin-top: 0;
-  }
-  .about .my-card img {
-    height: 600px;
+    padding-bottom: 120px;
   }
   .about .my-card .img-bg {
     height: auto;
@@ -530,8 +518,8 @@ img {
   }
 }
 @media (min-width: 567px) and (max-width: 768px) {
-  .about .my-card img {
-    height: auto;
+  .about .my-card {
+    padding: 35px 0;
   }
   .about .my-card span {
     left: 17%;
@@ -551,8 +539,10 @@ img {
 }
 
 .services {
-  padding: 80px 20px 40px;
+  padding: 40px 20px;
   padding-right: 0;
+  width: 100%;
+  overflow: hidden;
   text-align: center;
 }
 .services h2 {
@@ -566,7 +556,6 @@ img {
 }
 .services .service {
   position: relative;
-  margin-right: 60px;
 }
 .services .service img {
   width: 100%;
@@ -576,15 +565,12 @@ img {
   border: 1px solid #060606;
   border-radius: 5px;
   position: absolute;
-  bottom: 27%;
+  top: 65%;
   right: 2%;
   font-family: "Red Hat Display Bold";
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.services a i {
-  top: 0.5vh;
 }
 .services p {
   margin-top: 5vh;
@@ -592,20 +578,18 @@ img {
 @media (min-width: 576px) {
   .services {
     text-align: left;
-    padding-left: 6%;
-    padding: 100px 40px;
+    padding: 100px 60px 10px;
+    padding-right: 0;
   }
   .services h2 {
     margin-bottom: 60px;
   }
   .services .services-inner {
-    margin-left: 4%;
+    position: relative;
+    left: 10%;
   }
 }
 @media (min-width: 1024px) and (max-width: 1366px) {
-  .services a {
-    bottom: 40%;
-  }
   .services p {
     margin-top: 2vh;
   }
@@ -653,12 +637,18 @@ img {
   .founder .founder-inner h3, .founder .founder-inner p {
     margin-bottom: 30px;
   }
+  .founder .my-btn {
+    margin: 0;
+  }
 }
 @media (min-width: 567px) and (max-width: 768px) {
   .founder {
     padding: 120px 20px 40px;
     flex-direction: column-reverse;
     text-align: center;
+  }
+  .founder .my-btn {
+    margin: auto;
   }
   .founder .founder-bg {
     bottom: 0;
@@ -688,12 +678,18 @@ img {
   .investor h3, .investor p {
     margin-bottom: 30px;
   }
+  .investor .my-btn {
+    margin: 0;
+  }
 }
 @media (min-width: 567px) and (max-width: 768px) {
   .investor {
     padding: 80px 20px 40px;
     flex-direction: column;
     text-align: center;
+  }
+  .investor .my-btn {
+    margin: auto;
   }
 }
 
@@ -744,17 +740,17 @@ img {
     justify-content: space-between;
   }
   .FAQ .faq-qsn {
-    width: 50%;
+    width: 45%;
   }
   .FAQ .faq-qsn .ans {
-    width: 90%;
+    width: 100%;
     margin: 40px 0 80px;
   }
   .FAQ .faq-qsn hr {
     height: 1px;
     color: #000;
     opacity: 1;
-    width: 90%;
+    width: 100%;
   }
 }
 @media (min-width: 567px) and (max-width: 768px) {
@@ -776,14 +772,19 @@ img {
   text-align: center;
   padding: 80px 20px;
   border-radius: 20px;
+  height: 100%;
 }
 .funds .slide0 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  width: 90%;
+  width: 100%;
+  height: 20vh;
 }
 .funds .slide0 img {
-  margin: auto 20px;
-  width: 80%;
+  width: 100%;
+  height: 50%;
 }
 .funds .sponsors {
   position: relative;
@@ -792,8 +793,9 @@ img {
   visibility: hidden;
   position: absolute;
   z-index: 1;
-  left: -80px;
-  width: 114%;
+  left: 0;
+  top: 38%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -837,20 +839,14 @@ img {
   .funds .controls {
     visibility: visible;
   }
-  .funds .slide0 {
-    width: auto;
-  }
-  .funds .slide0 img {
-    width: auto;
-  }
 }
 @media (min-width: 567px) and (max-width: 768px) {
-  .funds .controls {
-    width: 111%;
-  }
   .funds .controls button {
     border-radius: 50%;
     background-color: #FFFFFF;
+  }
+  .funds .slide0 {
+    height: 12vh;
   }
 }
 
@@ -921,5 +917,10 @@ img {
   .my-footer .sub hr {
     height: 40px;
     margin: 40px;
+  }
+}
+@media (min-width: 567px) and (max-width: 768px) {
+  .my-footer .sub i {
+    width: 25%;
   }
 }/*# sourceMappingURL=style.css.map */

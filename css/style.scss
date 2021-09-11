@@ -198,7 +198,7 @@
                 position: relative;
                 display: flex;
                 justify-content: center;
-                align-items: center;
+                align-items: flex-start;
                 &::before{
                     visibility: visible;
                     clip-path: circle(100%);
@@ -358,31 +358,34 @@ a,button{
 a{
     text-decoration: none;
 }
-
 i{
-    display: inline-block;
-    width: 20%;
     margin-left: $btn-space/2;
-    transition: $anim-time;
-    top: 0;
-
-
-    img{
-        width: 100%;
-        object-fit: contain;
-    }
-
-
-    position: relative;
-    &:hover{
-        top: 5px;
-    }
-
-    @media (min-width:576px) {
-        width: 14%;
-    }
-
 }
+
+// i{
+//     display: inline-block;
+//     width: 20%;
+//     margin-left: $btn-space/2;
+//     transition: $anim-time;
+//     top: 0;
+
+
+//     img{
+//         width: 100%;
+//         object-fit: contain;
+//     }
+
+
+//     position: relative;
+//     &:hover{
+//         top: 5px;
+//     }
+
+//     @media (min-width:576px) {
+//         width: 14%;
+//     }
+
+// }
 
 img{
     object-fit: contain;
@@ -419,6 +422,9 @@ img{
     justify-content: center;
     padding:$btn-space/2 $btn-space;
     width: fit-content;
+    span{
+        display: ruby;
+    }
     @include text(
         $text-bold,
         $color-black,
@@ -429,6 +435,7 @@ img{
 
     &:hover{
         box-shadow: 0 2px 2px 2px rgba($color:$color-black,$alpha:0.20) ;
+        color: $color-green;
     }
 }
 
@@ -521,6 +528,13 @@ img{
 
     .hero-display{
         @include hero-card();
+
+        .title{
+            p{
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
         
     }
 
@@ -546,7 +560,7 @@ img{
 
         .hero-display{
             .title{
-                width: 51%;
+                width: 45%;
                 padding: $btn-space;
             }
             img{
@@ -576,7 +590,7 @@ img{
         }
         .hero-display{
             .title{
-                width: 50%;
+                width: 42%;
             }
         }
         a{
@@ -669,10 +683,8 @@ img{
             height: 80%;
             width: 70%;
             margin-top: 0;
+            padding-bottom: $btn-space*6;
            
-            img{
-                height: 600px;
-            }
 
             .img-bg{
                 height: auto;
@@ -688,9 +700,7 @@ img{
 
     @media (min-width:567px) and (max-width:768px){
         .my-card{
-            img{
-                height: auto;
-            }
+            padding: 35px 0;
 
             span{
                 left: 17%;
@@ -724,8 +734,10 @@ img{
 
 
 .services{
-    padding:  $btn-space*4 $btn-space $btn-space*2;
+    padding:$btn-space*2 $btn-space;
     padding-right: 0;
+    width: 100%;
+    overflow: hidden;
     text-align: center;
 
     h2{
@@ -744,7 +756,7 @@ img{
 
     .service{
         position: relative;
-        margin-right: $btn-space*3;
+        // margin-right: $btn-space;
         img{
             width: 100%;
             // height: 85%;
@@ -757,15 +769,13 @@ img{
         border: 1px solid $color-lightBlack;
         border-radius: 5px;
         position: absolute;
-        bottom: 27%;
+        top:65%;
         right: 2%;
         font-family: $text-redHat;
         display: flex;
         align-items: center;
         justify-content: center;
-        i{
-            top: .5vh;
-        }
+        
         
     }
 
@@ -776,20 +786,20 @@ img{
 
     @media (min-width:576px) {
         text-align: left;
-        padding-left: 6%;
-        padding: $btn-space*5 $btn-space*2;
+        padding: $btn-space*5 $btn-space*3 $btn-space/2;
+        padding-right: 0;
+        
         h2{
             margin-bottom: $btn-space*3;
         }
         .services-inner {
-            margin-left: 4%;
+            position: relative;
+            left: 10%;
         }
     }
 
     @media (min-width:1024px) and (max-width:1366px){
-        a{
-            bottom: 40%;
-        }
+
         p{
             margin-top: 2vh;
         }
@@ -829,6 +839,8 @@ img{
         // align-items: center;
     }
 
+    
+
 
     @media (min-width:576px) {
         padding: $btn-space*2 ;
@@ -850,12 +862,18 @@ img{
                 margin-bottom: $btn-space*3/2;
             }
         }
+        .my-btn{
+            margin: 0;
+        }
     }
 
     @media (min-width:567px) and (max-width:768px){
         padding: $btn-space*6 $btn-space $btn-space*2;
         flex-direction: column-reverse;
         text-align: center;
+        .my-btn{
+            margin: auto;
+        }
 
         .founder-bg{
             bottom: 0;
@@ -883,6 +901,8 @@ img{
         justify-content: center;
     }
 
+    
+
 
     @media (min-width:576px) {
 
@@ -894,14 +914,22 @@ img{
         h3,p{
             margin-bottom: $btn-space*3/2;
         }
+        .my-btn{
+            margin: 0;
+        }
     }
     @media (min-width:567px) and (max-width:768px){
         padding: $btn-space*4 $btn-space $btn-space*2;
         flex-direction: column;
         text-align: center;
 
+        .my-btn{
+            margin: auto;
+        }
+
 
     }
+
 }
 
 // ============================End====================================
@@ -965,11 +993,11 @@ img{
         }
 
         .faq-qsn{
-            width: 50%;
+            width: 45%;
             // margin-bottom: $btn-space*2;
 
             .ans{
-                width: 90%;
+                width: 100%;
                 margin: $btn-space*2 0 $btn-space*4;
             }
 
@@ -977,7 +1005,7 @@ img{
                 height: 1px;
                 color: $color-black;
                 opacity: 1;
-                width: 90%;
+                width: 100%;
             }
         }
     }
@@ -1009,16 +1037,20 @@ img{
         text-align: center;
         padding: $btn-space*4 $btn-space;
         border-radius: $btn-space;
+        height: 100%;
     }
     .slide0{
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         text-align: center;
-        width: 90%;
+        width: 100%;
+        height: 20vh;
+        // margin: auto $btn-space;
         img{
-            margin: auto $btn-space;
-            width: 80%;
+            
+            width: 100%;
+            height: 50%;
         }
     }
 
@@ -1032,8 +1064,9 @@ img{
         visibility: hidden;
         position: absolute;
         z-index: 1;
-        left: -$btn-space*4;
-        width: 114%;
+        left: 0;
+        top: 38%;
+        width: 100%;
         display: flex;
         justify-content: space-between;
         button{
@@ -1082,21 +1115,19 @@ img{
             visibility: visible;
         }
 
-        .slide0{
-            width: auto;
-            img{
-                width: auto;
-            }
-        }
     }
 
     @media (min-width:567px) and (max-width:768px){
         .controls{
-            width: 111%;
+            // width: 111%;
             button{
                 border-radius: 50%;
                 background-color: $color-white;
             }
+        }
+
+        .slide0{
+            height: 12vh;
         }
     }
 }
@@ -1170,6 +1201,13 @@ img{
             margin: $btn-space*2;
         }
     }
+    }
+    @media (min-width:567px) and (max-width:768px){
+        .sub{
+            i{
+                width: 25%;
+            }
+        }
     }
 }
 
