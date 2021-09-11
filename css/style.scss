@@ -627,7 +627,9 @@ img{
     // padding:  $btn-space*4 $btn-space*2 $btn-space*2;
     padding: $btn-space $btn-space/2;
     margin-top: -5%;
+    width: 100%;
 
+    overflow: hidden;
     
 
     .about-inner{
@@ -769,7 +771,7 @@ img{
         border: 1px solid $color-lightBlack;
         border-radius: 5px;
         position: absolute;
-        top:65%;
+        top:60%;
         right: 2%;
         font-family: $text-redHat;
         display: flex;
@@ -788,6 +790,9 @@ img{
         text-align: left;
         padding: $btn-space*5 $btn-space*3 $btn-space/2;
         padding-right: 0;
+        a{
+            top:63%;
+        }
         
         h2{
             margin-bottom: $btn-space*3;

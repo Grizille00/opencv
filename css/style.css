@@ -457,6 +457,8 @@ img {
   background: #22eeff;
   padding: 20px 10px;
   margin-top: -5%;
+  width: 100%;
+  overflow: hidden;
 }
 .about .about-inner img {
   position: relative;
@@ -566,7 +568,7 @@ img {
   border: 1px solid #060606;
   border-radius: 5px;
   position: absolute;
-  top: 65%;
+  top: 60%;
   right: 2%;
   font-family: "Red Hat Display Bold";
   display: flex;
@@ -581,6 +583,9 @@ img {
     text-align: left;
     padding: 100px 60px 10px;
     padding-right: 0;
+  }
+  .services a {
+    top: 63%;
   }
   .services h2 {
     margin-bottom: 60px;
