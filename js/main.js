@@ -11,7 +11,6 @@ const nav = document.querySelector(".menu");
 hum.addEventListener("click", ()=>{
     hum.classList.toggle("open");
     nav.classList.toggle("open");
-    controls.classList.toggle("open")
 })
 
 // Events End
@@ -21,10 +20,10 @@ hum.addEventListener("click", ()=>{
 $(document).on('ready',()=>{
     $('.center').slick({
         // centerMode: true,
-        centerPadding: '60px',
+        centerPadding: '90px',
         slidesToShow: 3,
         slidesToScroll:1,
-        autoplay:true,
+        // autoplay:true,
         autoplaySpeed:3000,
         arrows:false,
         infinite: true,
@@ -51,7 +50,7 @@ $(document).on('ready',()=>{
             // centerMode: true,
             centerPadding: '60px',
             slidesToShow: 3,
-            slidesToScroll:3,
+            slidesToScroll:2,
             autoplay:true,
             autoplaySpeed:3000,
             arrows:true,
@@ -71,7 +70,7 @@ $(document).on('ready',()=>{
                 settings: {
                   slidesToShow: 3,
                   slidesToScroll:1,
-                  centerPadding: '20px',
+                  centerPadding: '60px',
                 }
               },
               {

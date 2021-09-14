@@ -23,18 +23,18 @@
 // Sizing
     $btn-space:20px;
     $pad:2rem 1rem;
-    $ham-sz:60px;
-    $ham-pos:0.5rem;
+    $ham-sz:50px;
+    $ham-pos:1.5rem;
     $anim-time:400ms;
     @media (min-width:576px) {
         $btn-space: 35px;
-        $ham-sz:100px;
+        $ham-sz:80px;
         $ham-pos:1rem;
     }
 
     @media (min-width:576px)  and (max-width:768px){
         $btn-space: 30px;
-        $ham-sz:80px;
+        $ham-sz:60px;
     }
 // Sizing End
 
@@ -67,11 +67,9 @@
             $text-regular,
             $color1,
             27px,
-            32px,
-            35px
+            30px,
+            32px
         );   
-        // width: fit-content;
-        // margin-top: $left-spacing;
         transition: .7s linear;
         width: 100%;
         opacity: 0;
@@ -112,8 +110,8 @@
     border-radius: 50%;
     border: 3px double $color-black;
     position: absolute;
-    right: .5rem;
-    top: 0.5rem;
+    right: .7rem;
+    top: $ham-pos;
     padding: 0;
     transition: .7s linear;
     z-index: 2;
@@ -185,10 +183,8 @@
             visibility: hidden;
         } 
         
-        // flex-direction: column;
         flex-wrap: wrap;
         a{
-
             position: relative;
             @include menu-text($color-white,$color-lightBlack);
             
@@ -200,7 +196,6 @@
             overflow: hidden;
             position: relative;
             display: flex;
-            // justify-content: center;
             align-items: center;
             &::before{
                 visibility: visible;
@@ -211,25 +206,23 @@
                 z-index: 2;
                 transform: translateY(0);
                 opacity: 1;
-                // text-align: center;
-                &:first-child{
-                    // margin-top: 15vh;
-                }
-                &:not(:nth-child(1)){
-                    // margin-top: 10vh;
-                }
+              
 
             }
 
             .my-btn{
                 color: $color-lightBlack;
                 width: auto;
+                visibility: hidden;
             }
         }
 
 
         @media (min-width:1025px){
             position:relative;
+            .my-btn{
+                visibility: visible;
+            }
         }
         
 
@@ -244,16 +237,19 @@
     .title{
         position: absolute;
         right: 0;
-        bottom: 5%;
+        bottom: -11%;
         padding: $btn-space/2 $btn-space/4;
-        width:56%;
+        width:61%;
         height: auto;
-        border-radius: $btn-space;
+        border-radius: $btn-space - 2;
         background-color: $color-white;
         span{
             font-family: $text-bold;
             font-weight: 900;
             margin: 0 $btn-space/4;
+        }
+        p{
+            margin: 0;
         }
 
     }
@@ -305,7 +301,7 @@ text-transform: uppercase;
 @include text(
     $text-regular,
     $color-black,
-    22px,
+    18px,
     26px,
     51px
 );
@@ -320,7 +316,7 @@ text-transform: uppercase;
 @include text(
     $text-regular,
     $color-black,
-    19px,
+    16px,
     30px,
     41px
 );
@@ -354,9 +350,9 @@ p{
 @include text(
     $text-regular,
     $color-black,
-    12px,
-    17px,
-    23px
+    14px,
+    22px,
+    32px
 )
 }
 
@@ -365,8 +361,8 @@ a,button{
     $text-bold,
     $color-black,
     14px,
-    19px,
-    26px
+    22px,
+    32px
 )
 }
 
@@ -377,30 +373,7 @@ i{
 margin-left: $btn-space/2;
 }
 
-// i{
-//     display: inline-block;
-//     width: 20%;
-//     margin-left: $btn-space/2;
-//     transition: $anim-time;
-//     top: 0;
 
-
-//     img{
-//         width: 100%;
-//         object-fit: contain;
-//     }
-
-
-//     position: relative;
-//     &:hover{
-//         top: 5px;
-//     }
-
-//     @media (min-width:576px) {
-//         width: 14%;
-//     }
-
-// }
 
 img{
 object-fit: contain;
@@ -410,7 +383,8 @@ object-fit: contain;
 .logo{
 object-fit: contain;
 position: absolute;
-top:1.5rem;
+top:2rem;
+left: .7rem;
 width: 35%;
 @media (min-width:576px) {
     width: 12%;
@@ -424,6 +398,7 @@ width: 35%;
 }
 @media (min-width:1025px) {
     position: relative;
+    top: 0;
 }
 
 
@@ -444,6 +419,12 @@ align-items: center;
 justify-content: center;
 padding:$btn-space/2 $btn-space;
 width: fit-content;
+
+
+&.drop-btn,
+&.side-btn{
+    padding: $btn-space/2 ($btn-space/2 + 2px);
+}
 span{
     display: ruby;
 }
@@ -459,6 +440,22 @@ span{
     box-shadow: 0 2px 2px 2px rgba($color:$color-black,$alpha:0.20) ;
     color: $color-green;
 }
+@media (min-width:576px){
+    padding: $btn-space*2/3 $btn-space*2;
+    &.drop-btn,
+    &.side-btn{
+        padding: $btn-space*2/3 ($btn-space*3/4 + 10px);
+    }
+}
+
+@media (min-width:576px)  and (max-width:768px){
+    padding: $btn-space/2 $btn-space;
+    &.drop-btn,
+    &.side-btn{
+    padding: $btn-space/2 ($btn-space/2 + 2px);
+}
+}
+
 }
 
 
@@ -502,6 +499,19 @@ padding: $pad;
 }
 
 
+@media (min-width:576px)  and (max-width:768px){
+    .ham{
+        top: 1.5rem;
+        right: 1.5rem;
+    }
+
+    .logo{
+        top: 2rem;
+        left: 1.5rem;
+    }
+}
+
+
 
 
 @media (min-width:1025px){
@@ -514,12 +524,14 @@ padding: $pad;
 
         .my-btn{
             padding: $btn-space/4 $btn-space;
+            font-weight: 700;
         }
         
         a{
             &:not(:nth-child(1)){
                 margin-left: $btn-space;
             }
+
         }
     }
 }
@@ -534,8 +546,8 @@ padding: $pad;
 
 .hero{
 align-items: center;
-padding: $pad;
-padding-top: $btn-space*4;
+// padding: $pad;
+padding: $btn-space*4 $btn-space/2 $btn-space*3;
 background-color: $color-green;
 flex-direction: column;
 text-align: center;
@@ -608,15 +620,28 @@ a{
 }
 
 @media (min-width:567px) and (max-width:768px){
-    padding: $btn-space*4 $btn-space;
+    flex-direction: column;
+    padding:10vh $btn-space/2 $btn-space;
     text-align: left;
+    text-align: center;
     h1{
         padding: 0;
     }
+    div{
+        margin-top: 2vh;
+    }
     .hero-display{
+        width: 100%;
+        img{
+            left: 0;
+        }
         .title{
             width: 42%;
         }
+    }
+
+    .hero-inner{
+        width: 80%;
     }
     a{
         // width: auto;
@@ -650,9 +675,10 @@ a{
 .about{
 background: $color-green;
 // padding:  $btn-space*4 $btn-space*2 $btn-space*2;
-padding: $btn-space $btn-space/2;
+padding: $btn-space*3 $btn-space/2;
 margin-top: -5%;
 width: 100%;
+text-align: center;
 
 overflow: hidden;
 
@@ -669,13 +695,18 @@ overflow: hidden;
 
 
 .my-card{
-    margin-top: $btn-space*2;
+    margin-top: $btn-space*3;
     border-radius: $btn-space;
     position: relative;
     text-align: center;
 
 
-    
+    .card-body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: -6vh;
+    }
     span{
         @include text(
             $text-bold, 
@@ -683,9 +714,7 @@ overflow: hidden;
             18px,
             22px,
             30px );
-        position: absolute;
-        bottom: 5%;
-        left: 26%;
+        display: block;
     }
 
     .img-bg{
@@ -698,19 +727,23 @@ overflow: hidden;
 }
 
 .card2{
-    margin-top: $btn-space*5;
+    margin-top: $btn-space*4;
 }
 
 @media (min-width:567px) {
-    padding: $btn-space*5 $btn-space*2 $btn-space/2;
+    text-align: left;
+    padding: $btn-space*5 $btn-space*2 ;
     .about-inner{
-        padding-top: $btn-space*4;
+        padding-top: $btn-space*5;
+    }
+
+    .card-body{
+        padding: $btn-space*2 $btn-space*3;
     }
     .my-card{
-        height: 80%;
         width: 70%;
+        border-radius: $btn-space;
         margin-top: 0;
-        padding-bottom: $btn-space*6;
        
 
         .img-bg{
@@ -726,12 +759,14 @@ overflow: hidden;
 }
 
 @media (min-width:567px) and (max-width:768px){
+    padding-bottom: $btn-space*3;
     .my-card{
-        padding: 35px 0;
+        padding: 35px 0 0;
 
-        span{
-            left: 17%;
-        }
+    }
+
+    .card-body{
+        padding: $btn-space;
     }
 }
 
@@ -741,14 +776,8 @@ overflow: hidden;
     }
     
     .my-card{
-
         img{
-            height: auto;
             bottom: 3vh;
-        }
-        span{
-            bottom: 8%;
-            left: 18%;
         }
     }
 }
@@ -763,15 +792,18 @@ overflow: hidden;
 
 
 .services{
-padding:$btn-space*2 $btn-space;
+padding:$btn-space*2 $btn-space/3;
 padding-right: 0;
 width: 100%;
-overflow: hidden;
 text-align: center;
 
 h2{
     margin-bottom: 5vh;
 
+}
+
+.service-display{
+    position: relative;
 }
 .slick-active{
     a{
@@ -798,7 +830,7 @@ a{
     border: 1px solid $color-lightBlack;
     border-radius: 5px;
     position: absolute;
-    top:60%;
+    bottom: -10%;
     right: 2%;
     font-family: $text-redHat;
     display: flex;
@@ -814,16 +846,19 @@ p{
 
 
 @media (min-width:576px) {
+    overflow: visible;
     text-align: left;
-    padding: $btn-space*5 $btn-space*3 $btn-space/2;
+    padding: $btn-space*5 $btn-space*3 ;
     padding-right: 0;
-    a{
-        top:63%;
-    }
+
+
+    
     
     h2{
         margin-bottom: $btn-space*3;
     }
+
+    
     .services-inner {
         position: relative;
         left: 10%;
@@ -834,10 +869,16 @@ p{
     }
 }
 
-@media (min-width:1024px) and (max-width:1366px){
-    a{
-        top: 45%;
+@media (min-width:567px) and (max-width:768px){
+    text-align: center;
+    padding-bottom: $btn-space*4;
+    .services-inner{
+        left: 0;
     }
+}
+
+@media (min-width:1024px) and (max-width:1366px){
+  
     p{
         margin-top: 2vh;
     }
@@ -853,10 +894,12 @@ p{
 // ========================Founder Section==========================
 
 .founder{
-padding: $btn-space*2 $btn-space;
+padding: $btn-space*2 $btn-space/2 0;
 display: flex;
 flex-direction: column-reverse;
-margin-top: $btn-space*2;
+overflow: hidden;
+// margin-bottom: -2%;
+// margin-top: $btn-space*2;
 background-color: $color-green;
 
 text-align: center;
@@ -865,16 +908,23 @@ text-align: center;
     width: 100%;
     height: 100%;
     object-fit: contain;
+    position: relative;
+    top:5vh;
+
 }
 
 
 .founder-inner {
-    margin-bottom: $btn-space*2;
+    // margin-bottom: $btn-space*2;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     // align-items: center;
+}
+
+h3,p{
+    margin-bottom: $btn-space;
 }
 
 
@@ -886,9 +936,11 @@ text-align: center;
     text-align: left;
     flex-direction: row;
     align-items: center;
+    overflow: visible;
     .founder-bg{
         position: relative;
         bottom: 10vh;
+        margin-top: -12vh;
     }
 
     .founder-inner {
@@ -909,12 +961,17 @@ text-align: center;
     padding: $btn-space*6 $btn-space $btn-space*2;
     flex-direction: column-reverse;
     text-align: center;
+    .founder-bg{
+        width: 80%;
+        bottom: 0;
+        margin-top: -4vh;
+    }
     .my-btn{
         margin: auto;
     }
 
-    .founder-bg{
-        bottom: 0;
+    p{
+        font-size: 22px;
     }
 
 }
@@ -927,10 +984,18 @@ text-align: center;
 // ========================Investor Section==========================
 
 .investor {
-padding: $btn-space*2 $btn-space;
+padding: $btn-space*2 $btn-space/2;
 display: flex;
 flex-direction: column;
 text-align: center;
+// overflow: hidden;
+position: relative;
+z-index: 1;
+// margin-top: -2%;
+
+h3,p{
+    margin-bottom: $btn-space;
+}
 
 .investor-inner {
     margin-bottom: $btn-space*2;
@@ -952,14 +1017,28 @@ text-align: center;
     h3,p{
         margin-bottom: $btn-space*3/2;
     }
+    p{
+        // padding-right: 10%;
+    }
     .my-btn{
         margin: 0;
     }
+
+    .investor-inner{
+        position: relative;
+        top: 8vh;
+        width: 43%;
+    }
 }
 @media (min-width:567px) and (max-width:768px){
-    padding: $btn-space*4 $btn-space $btn-space*2;
+    padding: $btn-space*4 $btn-space ;
     flex-direction: column;
     text-align: center;
+
+    .investor-inner{
+        width: 100%;
+        margin-bottom: $btn-space*7;
+    }
 
     .my-btn{
         margin: auto;
@@ -978,15 +1057,15 @@ text-align: center;
 // ========================FAQ Section==========================
 .FAQ{
 background-color: $color-green;
-padding: $btn-space*2 $btn-space;
-margin-bottom: -4%;
+padding: $btn-space*3 $btn-space/2;
+margin-bottom: -25%;
 
 h2{
     text-align: center;
-    margin-bottom: $btn-space*4;
+    margin-bottom: $btn-space*2;
 }
 .FAQ-inner {
-    margin-top: $btn-space*2;
+    margin-top: $btn-space;
     display: flex;
     flex-direction: column;
 }
@@ -1000,17 +1079,17 @@ h2{
     .ans{
         transition: $anim-time;
         position: absolute;
-        // height: 0;
-        top: 0;
         opacity: 0;
+        transform: translateY(-$btn-space*2);
         visibility: hidden;
         margin-bottom: $btn-space*2;
 
         &.open{
             position: relative;
             visibility: visible;
+            transform: translateY(0);
             opacity: 1;
-            // height: auto;
+
         }
     }
     
@@ -1023,11 +1102,13 @@ i{
 
 
 @media (min-width:576px) {
-    padding: $btn-space*10 $btn-space*3 $btn-space*3;
+    padding: $btn-space*5 $btn-space*3 ;
+    margin-bottom: -5%;
     .FAQ-inner {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
+        margin-top: $btn-space*4;
     }
 
     .faq-qsn{
@@ -1050,6 +1131,8 @@ i{
 
 
 @media (min-width:567px) and (max-width:768px){
+    padding: $btn-space*4 $btn-space;
+    margin-bottom: -10%;
     .faq-qsn{
         width: 45%;
     }
@@ -1073,7 +1156,7 @@ text-align: center;
     z-index: 1;
     position: relative;
     text-align: center;
-    padding: $btn-space*4 $btn-space;
+    padding: $btn-space $btn-space/3;
     border-radius: $btn-space;
     height: 100%;
 }
@@ -1085,18 +1168,14 @@ text-align: center;
     width: 100%;
     height: 20vh;
     margin: 0 $btn-space/2;
-    // margin: auto $btn-space;
     img{
-        
+        height: 12vh;
         width: 100%;
-        height: 50%;
     }
 }
 
 .sponsors {
     position: relative;
-    // margin: auto;
-    // width: 90%;
 }
 
 .controls{
@@ -1157,6 +1236,11 @@ text-align: center;
 }
 
 @media (min-width:567px) and (max-width:768px){
+    margin-bottom: -10%;
+
+    .collapser{
+        padding: $btn-space*4 $btn-space;
+    }
     .controls{
         // width: 111%;
         button{
@@ -1167,7 +1251,15 @@ text-align: center;
 
     .slide0{
         margin: 0;
-        height: 12vh;
+        // height: 12vh;
+        img{
+            height: 5vh;
+            margin: auto;
+        }
+    }
+
+    .display{
+        bottom: 6vh;
     }
 }
 }
@@ -1187,7 +1279,7 @@ padding: $btn-space*2 0;
 }
 h4{
     color: $color-white;
-    margin-bottom: 5vh;
+    margin-bottom: 2vh;
 }
 ul{
     list-style: none;
@@ -1202,8 +1294,8 @@ span{
     @include text(
     $text-regular,
     $color-white,
-    12px,
-    17px,
+    14px,
+    19px,
     23px
 )
 }
@@ -1214,9 +1306,9 @@ span{
     align-items: center;
     margin-top: $btn-space*2;
     hr{
-        height: $btn-space;
+        height: $btn-space*3/2;
         opacity: 1;
-        width: 4px;
+        width: 3px;
         color: $color-white;
         margin: 0 $btn-space/2;
     }
