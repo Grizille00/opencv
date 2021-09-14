@@ -795,6 +795,7 @@ overflow: hidden;
 padding:$btn-space*2 $btn-space/3;
 padding-right: 0;
 width: 100%;
+overflow: hidden;
 text-align: center;
 
 h2{
@@ -846,7 +847,6 @@ p{
 
 
 @media (min-width:576px) {
-    overflow: visible;
     text-align: left;
     padding: $btn-space*5 $btn-space*3 ;
     padding-right: 0;

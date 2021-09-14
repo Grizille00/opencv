@@ -616,6 +616,7 @@ img {
   padding: 40px 6.6666666667px;
   padding-right: 0;
   width: 100%;
+  overflow: hidden;
   text-align: center;
 }
 .services h2 {
@@ -654,7 +655,6 @@ img {
 }
 @media (min-width: 576px) {
   .services {
-    overflow: visible;
     text-align: left;
     padding: 100px 60px;
     padding-right: 0;
