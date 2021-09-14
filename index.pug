@@ -78,13 +78,22 @@ html(lang="en")
         link(rel="stylesheet", href="./bsi/bootstrap-icons.css")
         link(rel="stylesheet", href="./css/style.css")
     body 
+        //- Preloader
+        #preloader
+            .sk-three-bounce
+                .sk-child.sk-bounce1
+                .sk-child.sk-bounce2
+                .sk-child.sk-bounce3
+
+
         //- Header
         header.main-header 
             img.logo(src="./img/logo.png", alt="")
-            svg(class="ham hamRotate " viewBox="0 0 100 100" )
-                path(class="line top" d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20")
-                path(class="line middle" d="m 30,50 h 40")
-                path(class="line bottom" d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20")
+
+            svg(class="ham hamRotate " viewBox="0 0 800 600" )
+                path(class="line top" d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200")
+                path(class="line middle" d="M300,320 L540,320")
+                path(class="line bottom" d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190" transform="translate(480, 320) scale(1, -1) translate(-480, -318)")
            
 
             nav.menu 

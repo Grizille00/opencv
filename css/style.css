@@ -60,6 +60,14 @@ h3 {
   }
 }
 
+.slick-slide {
+  opacity: 0;
+}
+
+.slick-active {
+  opacity: 1;
+}
+
 h4 {
   font-family: "Montserrat-Bold";
   color: #000;
@@ -130,18 +138,23 @@ img {
   -o-object-fit: contain;
      object-fit: contain;
   position: absolute;
+  top: 1.5rem;
   width: 35%;
 }
 @media (min-width: 576px) {
   .logo {
     width: 12%;
-    position: relative;
   }
 }
 @media (min-width: 576px) and (max-width: 768px) {
   .logo {
     width: 14%;
     position: absolute;
+  }
+}
+@media (min-width: 1025px) {
+  .logo {
+    position: relative;
   }
 }
 
@@ -189,7 +202,9 @@ img {
 
 .main-header {
   position: absolute;
-  width: 99%;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -197,7 +212,7 @@ img {
 }
 .main-header .menu {
   position: absolute;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 .main-header .menu::before {
   display: block;
@@ -205,8 +220,9 @@ img {
   top: 0;
   left: 0;
   content: "";
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   background: rgba(0, 0, 0, 0.95);
   transition: all 500ms ease-in-out;
   -webkit-clip-path: circle(30px at calc(100% - 65px) 65px);
@@ -217,10 +233,12 @@ img {
   position: relative;
   font-family: "Montserrat-Regular";
   color: #FFFFFF;
-  font-size: 25px;
+  font-size: 27px;
   transition: 0.7s linear;
+  width: 100%;
   opacity: 0;
-  transform: scale(0.1);
+  transform: translateY(100%);
+  font-weight: 700;
 }
 @media (min-width: 576px) {
   .main-header .menu a {
@@ -229,7 +247,7 @@ img {
 }
 @media (min-width: 576px) and (max-width: 768px) {
   .main-header .menu a {
-    font-size: 35px;
+    font-size: 32px;
   }
 }
 .main-header .menu a.active {
@@ -240,20 +258,21 @@ img {
 }
 @media (min-width: 1025px) {
   .main-header .menu a {
+    width: auto;
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
     color: #060606;
+    font-weight: 100;
   }
 }
 .main-header .menu.open {
   z-index: 1;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 .main-header .menu.open::before {
   visibility: visible;
@@ -262,15 +281,12 @@ img {
 }
 .main-header .menu.open a {
   z-index: 2;
-  transform: scale(1);
-  opacity: 0.9;
-  text-align: center;
-}
-.main-header .menu.open a:not(:nth-child(1)) {
-  margin-top: 10vh;
+  transform: translateY(0);
+  opacity: 1;
 }
 .main-header .menu.open .my-btn {
   color: #060606;
+  width: auto;
 }
 @media (min-width: 1025px) {
   .main-header .menu {
@@ -278,7 +294,7 @@ img {
   }
 }
 .main-header .ham {
-  background-color: rgba(6, 6, 6, 0.3);
+  background-color: rgba(6, 6, 6, 0.8);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
@@ -299,32 +315,26 @@ img {
   transition: 0.7s linear;
   z-index: 2;
 }
-.main-header .ham .top {
-  stroke-dasharray: 20 160;
+.main-header .ham .top,
+.main-header .ham .bottom {
+  stroke-dasharray: 240 910;
 }
 .main-header .ham .middle {
-  stroke-dasharray: 40 142;
-  transform-origin: 50%;
-  transition: transform 400ms;
-}
-.main-header .ham .bottom {
-  stroke-dasharray: 20 85;
-  transform-origin: 50%;
-  transition: transform 400ms, stroke-dashoffset 400ms;
+  stroke-dasharray: 240 240;
 }
 .main-header .ham.open {
   border-color: #22eeff;
-  transform: rotate(45deg);
 }
-.main-header .ham.open .top {
-  stroke-dashoffset: -64px;
+.main-header .ham.open path {
+  stroke: #22eeff;
+}
+.main-header .ham.open .top,
+.main-header .ham.open .bottom {
+  stroke-dashoffset: -650;
 }
 .main-header .ham.open .middle {
-  stroke-dashoffset: 0;
-  transform: rotate(90deg);
-}
-.main-header .ham.open .bottom {
-  stroke-dashoffset: -64px;
+  stroke-dasharray: 0 220;
+  stroke-dasharray: -120;
 }
 @media (min-width: 1025px) {
   .main-header .ham {
@@ -335,10 +345,13 @@ img {
   fill: none;
   transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
   stroke: #22eeff;
-  stroke-width: 4;
+  stroke-width: 10;
   stroke-linecap: round;
 }
 @media (min-width: 1025px) {
+  .main-header {
+    height: auto;
+  }
   .main-header .menu {
     display: flex;
     flex-direction: row;
@@ -377,7 +390,7 @@ img {
   right: 0;
   bottom: 5%;
   padding: 10px 5px;
-  width: 60%;
+  width: 56%;
   height: auto;
   border-radius: 20px;
   background-color: #FFFFFF;
@@ -533,9 +546,10 @@ img {
   }
   .about .my-card img {
     height: auto;
+    bottom: 3vh;
   }
   .about .my-card span {
-    bottom: 0;
+    bottom: 8%;
     left: 18%;
   }
 }
@@ -599,6 +613,9 @@ img {
   }
 }
 @media (min-width: 1024px) and (max-width: 1366px) {
+  .services a {
+    top: 45%;
+  }
   .services p {
     margin-top: 2vh;
   }
@@ -790,6 +807,7 @@ img {
   text-align: center;
   width: 100%;
   height: 20vh;
+  margin: 0 10px;
 }
 .funds .slide0 img {
   width: 100%;
@@ -855,6 +873,7 @@ img {
     background-color: #FFFFFF;
   }
   .funds .slide0 {
+    margin: 0;
     height: 12vh;
   }
 }
@@ -931,5 +950,67 @@ img {
 @media (min-width: 567px) and (max-width: 768px) {
   .my-footer .sub i {
     width: 25%;
+  }
+}
+
+/* Editable */
+#preloader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 6;
+  background-color: transparent;
+}
+
+.sk-three-bounce {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.sk-three-bounce .sk-child {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  display: inline-block;
+  background-color: #FFFFFF;
+  -webkit-animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
+          animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
+}
+.sk-three-bounce .sk-bounce1 {
+  -webkit-animation-delay: -0.32s;
+          animation-delay: -0.32s;
+}
+.sk-three-bounce .sk-bounce2 {
+  -webkit-animation-delay: -0.16s;
+          animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-three-bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    background-color: #FFFFFF;
+  }
+  40% {
+    transform: scale(1);
+    background-color: #8d22ff;
+  }
+}
+
+@keyframes sk-three-bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    background-color: #FFFFFF;
+  }
+  40% {
+    transform: scale(1);
+    background-color: #8d22ff;
   }
 }/*# sourceMappingURL=style.css.map */

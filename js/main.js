@@ -69,7 +69,7 @@ $(document).on('ready',()=>{
                 {
                 breakpoint: 992,
                 settings: {
-                  slidesToShow: 2,
+                  slidesToShow: 3,
                   slidesToScroll:1,
                   centerPadding: '20px',
                 }
@@ -77,8 +77,8 @@ $(document).on('ready',()=>{
               {
                 breakpoint: 576,
                 settings: {
-                  slidesToShow: 1,
-                  centerPadding: '60px',
+                  slidesToShow: 3,
+                  centerPadding: '20px',
                   centerMode:true,
                 }
               }
@@ -110,3 +110,18 @@ for (let i = 0; i < btns.length; i++) {
 }
 
 // Accordion End
+
+
+$(window).on("load", function() {
+  $('#preloader').fadeOut(500);
+  $('#main-wrapper').addClass('show');
+
+  // if($('body').attr('data-sidebar-position') === "fixed") {
+  //     $('.quixnav-scroll').slimscroll({
+  //         position: "right",
+  //         size: "5px",
+  //         height: "100%",
+  //         color: "transparent"
+  //     });
+  // }
+});
