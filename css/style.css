@@ -370,7 +370,7 @@ img {
   fill: none;
   transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
   stroke: #22eeff;
-  stroke-width: 10;
+  stroke-width: 15;
   stroke-linecap: round;
 }
 @media (min-width: 576px) and (max-width: 768px) {
