@@ -105,18 +105,21 @@ p {
   }
 }
 
-a, button {
+a,
+button {
   font-family: "Montserrat-Bold";
   color: #000;
   font-size: 14px;
 }
 @media (min-width: 576px) {
-  a, button {
+  a,
+button {
     font-size: 32px;
   }
 }
 @media (min-width: 576px) and (max-width: 768px) {
-  a, button {
+  a,
+button {
     font-size: 22px;
   }
 }
@@ -440,6 +443,7 @@ img {
 }
 @media (min-width: 576px) {
   .hero .hero-display .title {
+    width: 57%;
     bottom: 0;
   }
 }
@@ -462,7 +466,8 @@ img {
     width: 50%;
   }
   .hero .hero-display .title {
-    width: 45%;
+    bottom: -5%;
+    right: -2%;
     padding: 20px;
   }
   .hero .hero-display img {
@@ -494,6 +499,8 @@ img {
   }
   .hero .hero-display .title {
     width: 42%;
+    bottom: 0;
+    right: 6%;
   }
   .hero .hero-inner {
     width: 80%;
@@ -628,7 +635,8 @@ img {
 .services .slick-active a {
   box-shadow: 0 0.1875rem 0.375rem rgba(0, 0, 0, 0.23);
 }
-.services .slick-active a i, .services .slick-active a span {
+.services .slick-active a i,
+.services .slick-active a span {
   text-shadow: 0 0.1875rem 0.375rem rgba(0, 0, 0, 0.23);
 }
 .services .service {
@@ -707,7 +715,8 @@ img {
   flex-direction: column;
   justify-content: center;
 }
-.founder h3, .founder p {
+.founder h3,
+.founder p {
   margin-bottom: 20px;
 }
 @media (min-width: 576px) {
@@ -730,7 +739,8 @@ img {
     position: relative;
     bottom: 6vh;
   }
-  .founder .founder-inner h3, .founder .founder-inner p {
+  .founder .founder-inner h3,
+.founder .founder-inner p {
     margin-bottom: 30px;
   }
   .founder .my-btn {
@@ -764,7 +774,8 @@ img {
   position: relative;
   z-index: 1;
 }
-.investor h3, .investor p {
+.investor h3,
+.investor p {
   margin-bottom: 20px;
 }
 .investor .investor-inner {
@@ -781,7 +792,8 @@ img {
     justify-content: space-between;
     align-items: center;
   }
-  .investor h3, .investor p {
+  .investor h3,
+.investor p {
     margin-bottom: 30px;
   }
   .investor .my-btn {
@@ -916,9 +928,9 @@ img {
   visibility: hidden;
   position: absolute;
   z-index: 1;
-  left: 0;
+  left: 2%;
   top: 38%;
-  width: 100%;
+  width: 96%;
   display: flex;
   justify-content: space-between;
 }
@@ -961,6 +973,10 @@ img {
   }
   .funds .controls {
     visibility: visible;
+  }
+  .funds .logos {
+    width: 85%;
+    margin: auto;
   }
 }
 @media (min-width: 567px) and (max-width: 768px) {
