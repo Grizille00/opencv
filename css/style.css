@@ -1084,6 +1084,9 @@ img {
   .funds .display {
     bottom: 6vh;
   }
+  .funds .display img:not(:nth-child(2)) {
+    height: 10vh;
+  }
 }
 
 .my-footer {

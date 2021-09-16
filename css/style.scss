@@ -885,9 +885,6 @@
         @media (min-width:567px) and (max-width:768px) {
             padding: $btn-space*4 $btn-space;
             margin-bottom: -10%;
-            .faq-qsn {
-                // width: 45%;
-            }
         }
     }
     
@@ -1024,6 +1021,11 @@
             }
             .display {
                 bottom: 6vh;
+                img {
+                    &:not(:nth-child(2)) {
+                        height: 10vh;
+                    }
+                }
             }
         }
     }
