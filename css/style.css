@@ -437,8 +437,8 @@ img {
   position: absolute;
   right: 20%;
   bottom: -20%;
-  padding: 10px 5px;
-  width: 61%;
+  padding: 11px;
+  width: 65%;
   height: auto;
   border-radius: 18px;
   background-color: #FFFFFF;
@@ -931,7 +931,7 @@ img {
 .FAQ .faq-qsn .title span {
   font-family: #000;
   color: "Montserrat-Regular";
-  font-size: 14px;
+  font-size: 12px;
 }
 @media (min-width: 576px) {
   .FAQ .faq-qsn .title span {
@@ -955,7 +955,7 @@ img {
 .FAQ .faq-qsn .ans span {
   font-family: #000;
   color: "Montserrat-Regular";
-  font-size: 12px;
+  font-size: 11px;
 }
 @media (min-width: 576px) {
   .FAQ .faq-qsn .ans span {

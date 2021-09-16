@@ -193,8 +193,8 @@
                 position: absolute;
                 right: 20%;
                 bottom: -20%;
-                padding: $btn-space/2 $btn-space/4;
-                width: 61%;
+                padding: $btn-space/2 +1;
+                width: 65%;
                 height: auto;
                 border-radius: $btn-space - 2;
                 background-color: $color-white;
@@ -878,7 +878,7 @@
                     display: flex;
                     justify-content: space-between;
                     span {
-                        @include text($color-black, $text-regular, 14px, 18px, 23px);
+                        @include text($color-black, $text-regular, 12px, 18px, 23px);
                     }
                 }
                 .ans {
@@ -891,7 +891,7 @@
                     margin-bottom: $btn-space*2;
                     span {
                         // @include hyper-text($color-black);
-                        @include text($color-black, $text-regular, 12px, 16px, 20px);
+                        @include text($color-black, $text-regular, 11px, 16px, 20px);
                     }
                     &.open {
                         position: relative;
