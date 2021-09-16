@@ -12,7 +12,7 @@ $color-lightBlue:#E1EFF6;
 $color-lightBlack:#060606;
 $color-black:#000;
 $color-white:#FFFFFF;
-$color-green:#22eeff;
+$color-green:#e1eff6;
 // Colors End
 // Sizing
 $btn-space:20px;
@@ -45,6 +45,10 @@ $anim-time:400ms;
     @media (min-width:576px) and (max-width:768px) {
         font-size: $md;
     }
+}
+
+@mixin hyper-text($col) {
+    @include text( $text-regular, $col, 12px, 16px, 20px, );
 }
 
 // Typo End
@@ -158,6 +162,7 @@ $anim-time:400ms;
         position: relative;
         display: flex;
         align-items: center;
+        text-align: center;
         &::before {
             visibility: visible;
             clip-path: circle(100%);
@@ -175,6 +180,7 @@ $anim-time:400ms;
     }
     @media (min-width:1025px) {
         position: relative;
+        text-align: left;
         .my-btn {
             visibility: visible;
         }
@@ -187,8 +193,8 @@ $anim-time:400ms;
     position: relative;
     .title {
         position: absolute;
-        right: 0;
-        bottom: -11%;
+        right: 20%;
+        bottom: -20%;
         padding: $btn-space/2 $btn-space/4;
         width: 61%;
         height: auto;
@@ -207,6 +213,7 @@ $anim-time:400ms;
         .title {
             width: 57%;
             bottom: 0;
+            right: 0;
         }
     }
 }
@@ -311,11 +318,11 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: $btn-space/2 $btn-space;
+    padding: $btn-space/2 $btn-space*2;
     width: fit-content;
     &.drop-btn,
     &.side-btn {
-        padding: $btn-space/2 ($btn-space/2 + 2px);
+        padding: $btn-space/2 ($btn-space2 + 2px);
     }
     span {
         display: ruby;
@@ -336,7 +343,7 @@ img {
         padding: $btn-space/2 $btn-space;
         &.drop-btn,
         &.side-btn {
-            padding: $btn-space/2 ($btn-space/2 + 2px);
+            padding: $btn-space/2 ($btn-space + 2px);
         }
     }
 }
@@ -388,7 +395,7 @@ img {
             }
             a {
                 &:not(:nth-child(1)) {
-                    margin-left: $btn-space;
+                    margin-left: $btn-space*2;
                 }
             }
         }
@@ -425,7 +432,7 @@ img {
     @media (min-width:576px) {
         align-items: center;
         text-align: left;
-        padding: $btn-space*10 $btn-space*2 $btn-space*5;
+        padding: $btn-space*6 $btn-space*2 $btn-space*5;
         flex-direction: row;
         h1 {
             padding: 0;
@@ -436,7 +443,7 @@ img {
         }
         .hero-display {
             .title {
-                bottom: -5%;
+                bottom: -6%;
                 right: -2%;
                 padding: $btn-space;
             }
@@ -510,6 +517,7 @@ img {
         img {
             position: relative;
             bottom: 6vh;
+            height: 50vh;
         }
     }
     .my-card {
@@ -564,6 +572,12 @@ img {
         padding-bottom: $btn-space*3;
         .my-card {
             padding: 35px 0 0;
+            width: 80%;
+        }
+        .about-inner {
+            img {
+                height: 22vh;
+            }
         }
         .card-body {
             padding: $btn-space;
@@ -618,7 +632,7 @@ img {
         border-radius: 5px;
         position: absolute;
         bottom: -10%;
-        right: 2%;
+        right: 25%;
         font-family: $text-redHat;
         display: flex;
         align-items: center;
@@ -626,6 +640,9 @@ img {
     }
     p {
         margin-top: 5vh;
+        span {
+            @include hyper-text($color-black);
+        }
     }
     @media (min-width:576px) {
         text-align: left;
@@ -641,12 +658,18 @@ img {
         .service {
             margin-right: $btn-space*3;
         }
+        a {
+            right: 2%;
+        }
     }
     @media (min-width:567px) and (max-width:768px) {
         text-align: center;
         padding-bottom: $btn-space*4;
         .services-inner {
             left: 0;
+        }
+        a {
+            bottom: -14%;
         }
     }
     @media (min-width:1024px) and (max-width:1366px) {
@@ -761,9 +784,6 @@ img {
         p {
             margin-bottom: $btn-space*3/2;
         }
-        p {
-            // padding-right: 10%;
-        }
         .my-btn {
             margin: 0;
         }
@@ -809,12 +829,16 @@ img {
             display: flex;
         }
         .ans {
+            padding-left: $btn-space/2;
             transition: $anim-time;
             position: absolute;
             opacity: 0;
             transform: translateY(-$btn-space*2);
             visibility: hidden;
             margin-bottom: $btn-space*2;
+            span {
+                @include hyper-text($color-black);
+            }
             &.open {
                 position: relative;
                 visibility: visible;
@@ -885,7 +909,7 @@ img {
         height: 20vh;
         margin: 0 $btn-space/2;
         img {
-            height: 12vh;
+            height: 100%;
             width: 100%;
         }
     }
@@ -896,9 +920,9 @@ img {
         visibility: hidden;
         position: absolute;
         z-index: 1;
-        left: 2%;
+        left: 0;
         top: 38%;
-        width: 96%;
+        width: 100%;
         display: flex;
         justify-content: space-between;
         button {
@@ -913,7 +937,7 @@ img {
         text-align: center;
         position: relative;
         bottom: 4vh;
-        margin-bottom: -10%;
+        margin-bottom: -18%;
         img {
             &:nth-child(1) {
                 position: absolute;
@@ -922,13 +946,13 @@ img {
                 z-index: 0;
             }
             &:nth-child(2) {
-                width: 100%;
+                // width: 100%;
                 position: relative;
                 z-index: 2;
             }
             &:nth-child(3) {
                 position: absolute;
-                bottom: 0;
+                bottom: 18%;
                 right: 0;
             }
         }
@@ -936,6 +960,18 @@ img {
     @media (min-width:576px) {
         padding: $btn-space*5 0 $btn-space*2;
         text-align: left;
+        .collapser {
+            padding: $btn-space*4 $btn-space*2;
+        }
+        .slide0 {
+            height: 12vh;
+        }
+        hr {
+            width: 85%;
+            margin: 4vh auto;
+            opacity: 1;
+            color: $color-black;
+        }
         .display {
             display: block;
         }

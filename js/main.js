@@ -31,6 +31,7 @@ $(document).on('ready', () => {
                 breakpoint: 992,
                 settings: {
                     slidesToShow: 2,
+                    centerPadding: '20px',
                 }
             },
             {

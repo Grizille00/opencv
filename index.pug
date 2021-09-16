@@ -4,20 +4,23 @@
 mixin dropBtn(txt)
     a.btn.my-btn.btn-white.drop-btn(href="#")
         span=txt 
-        i.bi.bi-chevron-down
+        b
+            i.bi.font-weight-bold.bi-chevron-down
             //- img(src="./img/drop-icon.png", alt="")
 mixin dropBtn1(txt)
     a.btn.my-btn.drop-btn.darl(href="#")
         span=txt 
-        i.bi.bi-chevron-down
+        b
+            i.bi.bi-chevron-down
             //- img(src="./img/inco-drop-white.png", alt="")
 mixin myBtn(txt)
     a.btn.btn-white.my-btn(href="#")=txt 
 
 mixin sideBtn(txt)
-    a.btn.btn-white.side-btn(href="#")
+    a.btn.btn-white.my-btn.side-btn(href="#")
         span=txt 
-        i.bi.bi-chevron-right 
+        b
+            i.bi.bi-chevron-right 
             //- img(src="./img/Iconight.png", alt="")
 
 
@@ -321,7 +324,7 @@ html(lang="en")
             .container-md 
                 .collapser 
                     .funds-inner 
-                        h2 Startups Funded Via Open VC
+                        h3 Startups Funded Via Open VC
                         hr 
                     .sponsors 
                         .controls 

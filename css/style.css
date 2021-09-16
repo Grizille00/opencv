@@ -174,7 +174,7 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 20px;
+  padding: 10px 30px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -183,7 +183,7 @@ img {
   font-size: 14px;
 }
 .my-btn.drop-btn, .my-btn.side-btn {
-  padding: 10px 12px;
+  padding: 10px 22px;
 }
 .my-btn span {
   display: ruby;
@@ -200,7 +200,7 @@ img {
 }
 .my-btn:hover {
   box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
-  color: #22eeff;
+  color: #e1eff6;
 }
 @media (min-width: 576px) {
   .my-btn {
@@ -215,7 +215,7 @@ img {
     padding: 10px 20px;
   }
   .my-btn.drop-btn, .my-btn.side-btn {
-    padding: 10px 12px;
+    padding: 10px 22px;
   }
 }
 
@@ -297,6 +297,7 @@ img {
   position: relative;
   display: flex;
   align-items: center;
+  text-align: center;
 }
 .main-header .menu.open::before {
   visibility: visible;
@@ -316,6 +317,7 @@ img {
 @media (min-width: 1025px) {
   .main-header .menu {
     position: relative;
+    text-align: left;
   }
   .main-header .menu .my-btn {
     visibility: visible;
@@ -351,10 +353,10 @@ img {
   stroke-dasharray: 240 240;
 }
 .main-header .ham.open {
-  border-color: #22eeff;
+  border-color: #e1eff6;
 }
 .main-header .ham.open path {
-  stroke: #22eeff;
+  stroke: #e1eff6;
 }
 .main-header .ham.open .top,
 .main-header .ham.open .bottom {
@@ -372,7 +374,7 @@ img {
 .main-header .line {
   fill: none;
   transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-  stroke: #22eeff;
+  stroke: #e1eff6;
   stroke-width: 15;
   stroke-linecap: round;
 }
@@ -400,14 +402,14 @@ img {
     font-weight: 700;
   }
   .main-header .menu a:not(:nth-child(1)) {
-    margin-left: 20px;
+    margin-left: 40px;
   }
 }
 
 .hero {
   align-items: center;
   padding: 80px 10px 60px;
-  background-color: #22eeff;
+  background-color: #e1eff6;
   flex-direction: column;
   text-align: center;
   overflow: hidden;
@@ -425,8 +427,8 @@ img {
 }
 .hero .hero-display .title {
   position: absolute;
-  right: 0;
-  bottom: -11%;
+  right: 20%;
+  bottom: -20%;
   padding: 10px 5px;
   width: 61%;
   height: auto;
@@ -445,6 +447,7 @@ img {
   .hero .hero-display .title {
     width: 57%;
     bottom: 0;
+    right: 0;
   }
 }
 .hero .hero-display .title p {
@@ -455,7 +458,7 @@ img {
   .hero {
     align-items: center;
     text-align: left;
-    padding: 200px 40px 100px;
+    padding: 120px 40px 100px;
     flex-direction: row;
   }
   .hero h1 {
@@ -466,7 +469,7 @@ img {
     width: 50%;
   }
   .hero .hero-display .title {
-    bottom: -5%;
+    bottom: -6%;
     right: -2%;
     padding: 20px;
   }
@@ -526,7 +529,7 @@ img {
 }
 
 .about {
-  background: #22eeff;
+  background: #e1eff6;
   padding: 60px 10px;
   margin-top: -5%;
   width: 100%;
@@ -536,6 +539,7 @@ img {
 .about .about-inner img {
   position: relative;
   bottom: 6vh;
+  height: 50vh;
 }
 .about .my-card {
   margin-top: 60px;
@@ -605,6 +609,10 @@ img {
   }
   .about .my-card {
     padding: 35px 0 0;
+    width: 80%;
+  }
+  .about .about-inner img {
+    height: 22vh;
   }
   .about .card-body {
     padding: 20px;
@@ -652,7 +660,7 @@ img {
   border-radius: 5px;
   position: absolute;
   bottom: -10%;
-  right: 2%;
+  right: 25%;
   font-family: "Red Hat Display Bold";
   display: flex;
   align-items: center;
@@ -660,6 +668,21 @@ img {
 }
 .services p {
   margin-top: 5vh;
+}
+.services p span {
+  font-family: "Montserrat-Regular";
+  color: #000;
+  font-size: 12px;
+}
+@media (min-width: 576px) {
+  .services p span {
+    font-size: 20px;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .services p span {
+    font-size: 16px;
+  }
 }
 @media (min-width: 576px) {
   .services {
@@ -676,6 +699,9 @@ img {
   }
   .services .service {
     margin-right: 60px;
+  }
+  .services a {
+    right: 2%;
   }
 }
 @media (min-width: 567px) and (max-width: 768px) {
@@ -698,7 +724,7 @@ img {
   display: flex;
   flex-direction: column-reverse;
   overflow: hidden;
-  background-color: #22eeff;
+  background-color: #e1eff6;
   text-align: center;
 }
 .founder .founder-bg {
@@ -821,7 +847,7 @@ img {
 }
 
 .FAQ {
-  background-color: #22eeff;
+  background-color: #e1eff6;
   padding: 60px 10px;
   margin-bottom: -25%;
 }
@@ -842,12 +868,28 @@ img {
   display: flex;
 }
 .FAQ .faq-qsn .ans {
+  padding-left: 10px;
   transition: 400ms;
   position: absolute;
   opacity: 0;
   transform: translateY(-40px);
   visibility: hidden;
   margin-bottom: 40px;
+}
+.FAQ .faq-qsn .ans span {
+  font-family: "Montserrat-Regular";
+  color: #000;
+  font-size: 12px;
+}
+@media (min-width: 576px) {
+  .FAQ .faq-qsn .ans span {
+    font-size: 20px;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .FAQ .faq-qsn .ans span {
+    font-size: 16px;
+  }
 }
 .FAQ .faq-qsn .ans.open {
   position: relative;
@@ -895,7 +937,7 @@ img {
 
 .funds {
   padding: 60px 0;
-  background-color: #22eeff;
+  background-color: #e1eff6;
   text-align: center;
 }
 .funds .collapser {
@@ -918,7 +960,7 @@ img {
   margin: 0 10px;
 }
 .funds .slide0 img {
-  height: 12vh;
+  height: 100%;
   width: 100%;
 }
 .funds .sponsors {
@@ -928,9 +970,9 @@ img {
   visibility: hidden;
   position: absolute;
   z-index: 1;
-  left: 2%;
+  left: 0;
   top: 38%;
-  width: 96%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -945,7 +987,7 @@ img {
   text-align: center;
   position: relative;
   bottom: 4vh;
-  margin-bottom: -10%;
+  margin-bottom: -18%;
 }
 .funds .display img:nth-child(1) {
   position: absolute;
@@ -954,19 +996,30 @@ img {
   z-index: 0;
 }
 .funds .display img:nth-child(2) {
-  width: 100%;
   position: relative;
   z-index: 2;
 }
 .funds .display img:nth-child(3) {
   position: absolute;
-  bottom: 0;
+  bottom: 18%;
   right: 0;
 }
 @media (min-width: 576px) {
   .funds {
     padding: 100px 0 40px;
     text-align: left;
+  }
+  .funds .collapser {
+    padding: 80px 40px;
+  }
+  .funds .slide0 {
+    height: 12vh;
+  }
+  .funds hr {
+    width: 85%;
+    margin: 4vh auto;
+    opacity: 1;
+    color: #000;
   }
   .funds .display {
     display: block;
