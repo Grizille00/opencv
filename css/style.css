@@ -928,8 +928,11 @@ img {
     justify-content: space-between;
     margin-top: 80px;
   }
-  .FAQ .faq-qsn {
+  .FAQ .FAQ-inner .side1,
+.FAQ .FAQ-inner .side2 {
     width: 50%;
+  }
+  .FAQ .faq-qsn {
     margin-bottom: 40px;
   }
   .FAQ .faq-qsn .title {
@@ -950,9 +953,6 @@ img {
   .FAQ {
     padding: 80px 20px;
     margin-bottom: -10%;
-  }
-  .FAQ .faq-qsn {
-    width: 45%;
   }
 }
 

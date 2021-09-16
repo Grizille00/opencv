@@ -859,9 +859,13 @@
                 flex-wrap: wrap;
                 justify-content: space-between;
                 margin-top: $btn-space*4;
+                .side1,
+                .side2 {
+                    width: 50%;
+                }
             }
             .faq-qsn {
-                width: 50%;
+                // width: 50%;
                 margin-bottom: $btn-space*2;
                 .title {
                     width: 90%;
@@ -882,7 +886,7 @@
             padding: $btn-space*4 $btn-space;
             margin-bottom: -10%;
             .faq-qsn {
-                width: 45%;
+                // width: 45%;
             }
         }
     }
