@@ -28,6 +28,12 @@ $(document).on('ready', () => {
         arrows: false,
         infinite: true,
         responsive: [{
+                breakpoint: 1025,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            }, {
                 breakpoint: 992,
                 settings: {
                     slidesToShow: 2,
@@ -58,13 +64,6 @@ $(document).on('ready', () => {
         prevArrow: ".btnPrev",
         nextArrow: ".btnNext",
         responsive: [{
-                breakpoint: 1025,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                }
-            },
-            {
                 breakpoint: 992,
                 settings: {
                     slidesToShow: 3,

@@ -162,6 +162,13 @@ img {
     top: 0;
   }
 }
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .logo {
+    width: 15%;
+    top: 2rem;
+    left: 2rem;
+  }
+}
 
 .my-btn {
   background-color: #FFFFFF;
@@ -400,6 +407,12 @@ img {
     margin-left: 40px;
   }
 }
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .main-header .logo {
+    top: 2rem;
+    right: 2rem;
+  }
+}
 
 .hero {
   align-items: center;
@@ -509,7 +522,8 @@ img {
 }
 @media (min-width: 1024px) and (max-width: 1366px) {
   .hero {
-    padding-top: 80px;
+    flex-direction: column;
+    padding-top: 120px;
   }
   .hero a {
     width: auto;
@@ -520,6 +534,10 @@ img {
   }
   .hero .title {
     width: 67%;
+  }
+  .hero .hero-inner {
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -618,6 +636,7 @@ img {
     margin-bottom: 60px;
   }
   .about .my-card img {
+    height: auto;
     bottom: 3vh;
   }
 }
@@ -789,6 +808,27 @@ img {
     font-size: 22px;
   }
 }
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .founder {
+    overflow: hidden;
+    text-align: center;
+    flex-direction: column-reverse;
+  }
+  .founder .my-btn {
+    margin: auto;
+  }
+  .founder h3 {
+    font-size: 35px;
+  }
+  .founder p {
+    font-size: 25px;
+  }
+  .founder .founder-inner,
+.founder .founder-bg {
+    bottom: 0;
+    margin: 0;
+  }
+}
 
 .investor {
   padding: 40px 10px;
@@ -841,6 +881,25 @@ img {
   }
   .investor .my-btn {
     margin: auto;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .investor {
+    flex-direction: column;
+    text-align: center;
+  }
+  .investor .my-btn {
+    margin: auto;
+  }
+  .investor .investor-inner {
+    top: 0;
+    width: 100%;
+  }
+  .investor h3 {
+    font-size: 35px;
+  }
+  .investor p {
+    font-size: 25px;
   }
 }
 
@@ -953,6 +1012,15 @@ img {
   .FAQ {
     padding: 80px 20px;
     margin-bottom: -10%;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .FAQ .FAQ-inner .side1,
+.FAQ .FAQ-inner .side2 {
+    width: 100%;
+  }
+  .FAQ .faq-qsn .title span {
+    font-size: 28px;
   }
 }
 
@@ -1086,6 +1154,20 @@ img {
   }
   .funds .display img:not(:nth-child(2)) {
     height: 10vh;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .funds .slide0 {
+    height: 8vh;
+  }
+  .funds .controls {
+    top: 25%;
+  }
+  .funds .collapser {
+    padding: 80px 10px;
+  }
+  .funds .display img:not(:nth-child(2)) {
+    height: 9vh;
   }
 }
 
