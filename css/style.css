@@ -71,7 +71,7 @@ h3 {
 h4 {
   font-family: "Montserrat-Bold";
   color: #000;
-  font-size: 16px;
+  font-size: 18px;
 }
 @media (min-width: 576px) {
   h4 {
@@ -174,7 +174,7 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 30px;
+  padding: 10px 40px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -184,9 +184,6 @@ img {
 }
 .my-btn.drop-btn, .my-btn.side-btn {
   padding: 10px 22px;
-}
-.my-btn span {
-  display: ruby;
 }
 @media (min-width: 576px) {
   .my-btn {
@@ -289,6 +286,9 @@ img {
     font-weight: 100;
   }
 }
+.main-header .menu .my-btn {
+  visibility: hidden;
+}
 .main-header .menu.open {
   z-index: 1;
   width: 100%;
@@ -308,11 +308,6 @@ img {
   z-index: 2;
   transform: translateY(0);
   opacity: 1;
-}
-.main-header .menu.open .my-btn {
-  color: #060606;
-  width: auto;
-  visibility: hidden;
 }
 @media (min-width: 1025px) {
   .main-header .menu {
@@ -659,7 +654,7 @@ img {
   border: 1px solid #060606;
   border-radius: 5px;
   position: absolute;
-  bottom: -10%;
+  bottom: -12%;
   right: 25%;
   font-family: "Red Hat Display Bold";
   display: flex;
@@ -711,6 +706,9 @@ img {
   }
   .services .services-inner {
     left: 0;
+  }
+  .services a {
+    bottom: -14%;
   }
 }
 @media (min-width: 1024px) and (max-width: 1366px) {
@@ -851,6 +849,9 @@ img {
   padding: 60px 10px;
   margin-bottom: -25%;
 }
+.FAQ p {
+  margin: 0;
+}
 .FAQ h2 {
   text-align: center;
   margin-bottom: 40px;
@@ -866,6 +867,22 @@ img {
 }
 .FAQ .faq-qsn .title {
   display: flex;
+  justify-content: space-between;
+}
+.FAQ .faq-qsn .title span {
+  font-family: #000;
+  color: "Montserrat-Regular";
+  font-size: 14px;
+}
+@media (min-width: 576px) {
+  .FAQ .faq-qsn .title span {
+    font-size: 23px;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .FAQ .faq-qsn .title span {
+    font-size: 18px;
+  }
 }
 .FAQ .faq-qsn .ans {
   padding-left: 10px;
@@ -877,8 +894,8 @@ img {
   margin-bottom: 40px;
 }
 .FAQ .faq-qsn .ans span {
-  font-family: "Montserrat-Regular";
-  color: #000;
+  font-family: #000;
+  color: "Montserrat-Regular";
   font-size: 12px;
 }
 @media (min-width: 576px) {
@@ -912,17 +929,21 @@ img {
     margin-top: 80px;
   }
   .FAQ .faq-qsn {
-    width: 45%;
+    width: 50%;
+    margin-bottom: 40px;
+  }
+  .FAQ .faq-qsn .title {
+    width: 90%;
   }
   .FAQ .faq-qsn .ans {
-    width: 100%;
+    width: 98%;
     margin: 40px 0 80px;
   }
   .FAQ .faq-qsn hr {
     height: 1px;
     color: #000;
     opacity: 1;
-    width: 100%;
+    width: 95%;
   }
 }
 @media (min-width: 567px) and (max-width: 768px) {
@@ -994,8 +1015,10 @@ img {
   top: 0;
   left: 0;
   z-index: 0;
+  height: 10vh;
 }
 .funds .display img:nth-child(2) {
+  width: 100%;
   position: relative;
   z-index: 2;
 }
@@ -1003,6 +1026,7 @@ img {
   position: absolute;
   bottom: 18%;
   right: 0;
+  height: 10vh;
 }
 @media (min-width: 576px) {
   .funds {
@@ -1024,6 +1048,9 @@ img {
   .funds .display {
     display: block;
   }
+  .funds .display img:not(:nth-child(2)) {
+    height: 20vh;
+  }
   .funds .controls {
     visibility: visible;
   }
@@ -1042,6 +1069,10 @@ img {
   .funds .controls button {
     border-radius: 50%;
     background-color: #FFFFFF;
+    width: 10%;
+  }
+  .funds .controls button img {
+    width: 100%;
   }
   .funds .slide0 {
     margin: 0;
