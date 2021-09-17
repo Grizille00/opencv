@@ -408,6 +408,9 @@ img {
     padding: 5px 20px;
     font-weight: 700;
   }
+  .main-header .menu a {
+    visibility: visible;
+  }
   .main-header .menu a:not(:nth-child(1)) {
     margin-left: 40px;
   }
@@ -659,6 +662,9 @@ img {
 .services .service-display {
   position: relative;
 }
+.services .side-btn {
+  padding: 6.6666666667px 20px;
+}
 .services .slick-active a {
   box-shadow: 0 0.1875rem 0.375rem rgba(0, 0, 0, 0.23);
 }
@@ -678,7 +684,7 @@ img {
   border: 1px solid #060606;
   border-radius: 5px;
   position: absolute;
-  bottom: -12%;
+  bottom: -10%;
   right: 25%;
   font-family: "Red Hat Display Bold";
   display: flex;

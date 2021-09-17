@@ -217,6 +217,7 @@
                     right: 0;
                 }
             }
+           
         }
         
         // Hero Card End
@@ -400,6 +401,7 @@
                         font-weight: 700;
                     }
                     a {
+                        visibility: visible;
                         &:not(:nth-child(1)) {
                             margin-left: $btn-space*2;
                         }
@@ -627,6 +629,9 @@
             .service-display {
                 position: relative;
             }
+            .side-btn{
+                padding: $btn-space/3 $btn-space;
+            }
             .slick-active {
                 a {
                     i,
@@ -649,7 +654,7 @@
                 border: 1px solid $color-lightBlack;
                 border-radius: 5px;
                 position: absolute;
-                bottom: -12%;
+                bottom: -10%;
                 right: 25%;
                 font-family: $text-redHat;
                 display: flex;
