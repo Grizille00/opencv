@@ -298,7 +298,7 @@ img {
   }
 }
 .main-header .menu .my-btn {
-  visibility: hidden;
+  display: none;
 }
 .main-header .menu.open {
   z-index: 1;
@@ -321,16 +321,13 @@ img {
   transform: translateY(0);
   opacity: 1;
 }
-.main-header .menu.open a.my-btn {
-  visibility: hidden;
-}
 @media (min-width: 1025px) {
   .main-header .menu {
     position: relative;
     text-align: left;
   }
   .main-header .menu .my-btn {
-    visibility: visible;
+    display: block;
   }
 }
 .main-header .ham {

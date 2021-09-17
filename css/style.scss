@@ -156,7 +156,7 @@
                 @include menu-text($color-white, $color-lightBlack);
             }
             .my-btn {
-                visibility: hidden;
+                display: none;
             }
             &.open {
                 z-index: 1;
@@ -176,16 +176,14 @@
                     z-index: 2;
                     transform: translateY(0);
                     opacity: 1;
-                    &.my-btn{
-                        visibility: hidden;
-                    }
+                    
                 }
             }
             @media (min-width:1025px) {
                 position: relative;
                 text-align: left;
                 .my-btn {
-                    visibility: visible;
+                    display: block;
                 }
             }
         }
