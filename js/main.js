@@ -68,7 +68,8 @@ $(document).on('ready', () => {
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 1,
-                    centerPadding: '60px',
+                    centerPadding: '20px',
+                    centerMode:true
                 }
             },
             {

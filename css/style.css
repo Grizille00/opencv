@@ -189,6 +189,9 @@ img {
   color: #000;
   font-size: 14px;
 }
+.my-btn:hover {
+  color: #000;
+}
 .my-btn.drop-btn, .my-btn.side-btn {
   padding: 10px 22px;
 }
@@ -259,6 +262,7 @@ img {
 }
 .main-header .menu a {
   position: relative;
+  visibility: hidden;
   font-family: "Montserrat-Regular";
   color: #FFFFFF;
   font-size: 27px;
@@ -312,6 +316,7 @@ img {
           clip-path: circle(100%);
 }
 .main-header .menu.open a {
+  visibility: visible;
   z-index: 2;
   transform: translateY(0);
   opacity: 1;
@@ -435,10 +440,10 @@ img {
 }
 .hero .hero-display .title {
   position: absolute;
-  right: 20%;
+  right: 17%;
   bottom: -20%;
   padding: 11px;
-  width: 65%;
+  width: 66%;
   height: auto;
   border-radius: 18px;
   background-color: #FFFFFF;
@@ -681,7 +686,8 @@ img {
   justify-content: center;
 }
 .services p {
-  margin-top: 5vh;
+  margin-top: 6vh;
+  line-height: 1.2;
 }
 .services p span {
   font-family: "Montserrat-Regular";
@@ -703,6 +709,9 @@ img {
     text-align: left;
     padding: 100px 60px;
     padding-right: 0;
+  }
+  .services p {
+    margin-top: 5vh;
   }
   .services h2 {
     margin-bottom: 60px;
@@ -728,6 +737,7 @@ img {
   }
   .services a {
     bottom: -14%;
+    right: 20%;
   }
 }
 @media (min-width: 1024px) and (max-width: 1366px) {
@@ -927,6 +937,7 @@ img {
 .FAQ .faq-qsn .title {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 }
 .FAQ .faq-qsn .title span {
   font-family: #000;
@@ -940,7 +951,7 @@ img {
 }
 @media (min-width: 576px) and (max-width: 768px) {
   .FAQ .faq-qsn .title span {
-    font-size: 18px;
+    font-size: 14px;
   }
 }
 .FAQ .faq-qsn .ans {
@@ -964,7 +975,7 @@ img {
 }
 @media (min-width: 576px) and (max-width: 768px) {
   .FAQ .faq-qsn .ans span {
-    font-size: 16px;
+    font-size: 12px;
   }
 }
 .FAQ .faq-qsn .ans.open {
@@ -972,9 +983,6 @@ img {
   visibility: visible;
   transform: translateY(0);
   opacity: 1;
-}
-.FAQ i {
-  width: 20px;
 }
 @media (min-width: 576px) {
   .FAQ {
@@ -1012,6 +1020,9 @@ img {
   .FAQ {
     padding: 80px 20px;
     margin-bottom: -10%;
+  }
+  .FAQ .title i {
+    margin: 0;
   }
 }
 @media (min-width: 1024px) and (max-width: 1366px) {
@@ -1123,7 +1134,7 @@ img {
     visibility: visible;
   }
   .funds .logos {
-    width: 85%;
+    width: 82%;
     margin: auto;
   }
 }
