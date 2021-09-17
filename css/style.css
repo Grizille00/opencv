@@ -321,6 +321,9 @@ img {
   transform: translateY(0);
   opacity: 1;
 }
+.main-header .menu.open a.my-btn {
+  visibility: hidden;
+}
 @media (min-width: 1025px) {
   .main-header .menu {
     position: relative;

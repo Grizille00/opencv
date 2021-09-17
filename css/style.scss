@@ -176,6 +176,9 @@
                     z-index: 2;
                     transform: translateY(0);
                     opacity: 1;
+                    &.my-btn{
+                        visibility: hidden;
+                    }
                 }
             }
             @media (min-width:1025px) {
